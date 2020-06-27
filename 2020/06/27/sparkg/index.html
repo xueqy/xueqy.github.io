@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="聊一聊MapReduce的Shuffle过程吧, xueqy&#39;s  blogs">
+    <meta name="keywords" content="Spark有哪些优化方法?, xueqy&#39;s  blogs">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>聊一聊MapReduce的Shuffle过程吧 | xueqy&#39;s  blogs</title>
+    <title>Spark有哪些优化方法? | xueqy&#39;s  blogs</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -330,12 +330,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">聊一聊MapReduce的Shuffle过程吧</h1>
+                    <h1 class="description center-align post-title">Spark有哪些优化方法?</h1>
                 </div>
             </div>
         </div>
@@ -480,8 +480,10 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="聊一聊MapReduce的Shuffle过程吧"><a href="#聊一聊MapReduce的Shuffle过程吧" class="headerlink" title="聊一聊MapReduce的Shuffle过程吧"></a>聊一聊MapReduce的Shuffle过程吧</h3><p><img src="/medias/shuffle.png" alt="shuffle"><br>Map 方法之后 Reduce 方法之前这段处理过程叫 Shuffle<br>Map 方法之后，数据首先进入到分区方法，把数据标记好分区，然后把数据发送到<br>环形缓冲区；环形缓冲区默认大小 100m，环形缓冲区达到 80%时，进行溢写；溢写前对数<br>据进行排序，排序按照对 key 的索引进行字典顺序排序，排序的手段快排；溢写产生大量溢<br>写文件，需要对溢写文件进行归并排序；对溢写的文件也可以进行 Combiner 操作，前提是<br>汇总操作，求平均值不行。最后将文件按照分区存储到磁盘，等待 Reduce 端拉取。<br>每个 Reduce 拉取 Map 端对应分区的数据。拉取数据后先存储到内存中，内存不够<br>了，再存储到磁盘。拉取完所有数据后，采用归并排序将内存和磁盘中的数据都进行排序。<br>在进入 Reduce 方法前，可以对数据进行分组操作。</p>
-
+                <h3 id="Spark有哪些优化方法"><a href="#Spark有哪些优化方法" class="headerlink" title="Spark有哪些优化方法?"></a>Spark有哪些优化方法?</h3><h4 id="spark调优比较复杂，但是大体可以分为三个方面来进行"><a href="#spark调优比较复杂，但是大体可以分为三个方面来进行" class="headerlink" title="spark调优比较复杂，但是大体可以分为三个方面来进行"></a>spark调优比较复杂，但是大体可以分为三个方面来进行</h4><p>1）平台层面的调优：防止不必要的jar包分发，提高数据的本地性，选择高效的存储格式如parquet</p>
+<p>2）应用程序层面的调优：过滤操作符的优化降低过多小任务，降低单条记录的资源开销，处理数据倾斜，复用RDD进行缓存，作业并行化执行等等</p>
+<p>3）JVM层面的调优：设置合适的资源量，设置合理的JVM，启用高效的序列化方法如kyro，增大off head内存等等</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">.&#x2F;bin&#x2F;spark-submit \</span><br><span class="line">  --master yarn-cluster \</span><br><span class="line">  --num-executors 100 \</span><br><span class="line">  --executor-memory 6G \</span><br><span class="line">  --executor-cores 4 \</span><br><span class="line">  --driver-memory 1G \</span><br><span class="line">  --conf spark.default.parallelism&#x3D;1000 \</span><br><span class="line">  --conf spark.storage.memoryFraction&#x3D;0.5 \</span><br><span class="line">  --conf spark.shuffle.memoryFraction&#x3D;0.3 \</span><br></pre></td></tr></table></figure>
             </div>
             <hr/>
 
@@ -506,7 +508,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yoursite.com/2020/06/27/shuffle/">http://yoursite.com/2020/06/27/shuffle/</a>
+                    <a href="http://yoursite.com/2020/06/27/sparkg/">http://yoursite.com/2020/06/27/sparkg/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -976,20 +978,19 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/06/27/sparkha/">
+                <a href="/2020/06/27/sparkf/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="如何配置spark master的HA？">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="spark 如何防止内存溢出?">
                         
-                        <span class="card-title">如何配置spark master的HA？</span>
+                        <span class="card-title">spark 如何防止内存溢出?</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            如何配置spark master的HA？1)配置zookeeper
-2)修改spark_env.sh文件,spark的master参数不在指定，添加如下代码到各个master节点  export SPARK_DAEMON_JAVA_OPTS
+                            spark 如何防止内存溢出?driver端的内存溢出可以增大driver的内存参数：spark.driver.memory (default 1g)这个参数用来设置Driver的内存。在Spark程序中，SparkContext，DAGS
                         
                     </div>
                     <div class="publish-info">
@@ -1014,26 +1015,19 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/06/27/mrSpark/">
+                <a href="/2020/06/27/sparkb/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="mr与spark的区别是什么？">
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="spark中的RDD是什么，有哪些特性?">
                         
-                        <span class="card-title">mr与spark的区别是什么？</span>
+                        <span class="card-title">spark中的RDD是什么，有哪些特性?</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
-MR是基于进程，spark是基于线程
-Spark的多个task跑在同一个进程上，这个进程会伴随spark应用程序的整个生命周期，即使没有作业进行，进
-
-程也是存在的
-
-MR的每一个task都是一个进程，当task完成时，进程也会结束
-所以
+                            spark中的RDD是什么，有哪些特性?1、RDD（Resilient Distributed Dataset）叫做分布式数据集，是Spark中最基本的数据抽象，它代表一个不可变、可分区、里面的元素可并行计算的集合。- Dataset：就是
                         
                     </div>
                     <div class="publish-info">

@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="聊一聊MapReduce的Shuffle过程吧, xueqy&#39;s  blogs">
+    <meta name="keywords" content="spark中的RDD是什么，有哪些特性?, xueqy&#39;s  blogs">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>聊一聊MapReduce的Shuffle过程吧 | xueqy&#39;s  blogs</title>
+    <title>spark中的RDD是什么，有哪些特性? | xueqy&#39;s  blogs</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -330,12 +330,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">聊一聊MapReduce的Shuffle过程吧</h1>
+                    <h1 class="description center-align post-title">spark中的RDD是什么，有哪些特性?</h1>
                 </div>
             </div>
         </div>
@@ -480,8 +480,21 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="聊一聊MapReduce的Shuffle过程吧"><a href="#聊一聊MapReduce的Shuffle过程吧" class="headerlink" title="聊一聊MapReduce的Shuffle过程吧"></a>聊一聊MapReduce的Shuffle过程吧</h3><p><img src="/medias/shuffle.png" alt="shuffle"><br>Map 方法之后 Reduce 方法之前这段处理过程叫 Shuffle<br>Map 方法之后，数据首先进入到分区方法，把数据标记好分区，然后把数据发送到<br>环形缓冲区；环形缓冲区默认大小 100m，环形缓冲区达到 80%时，进行溢写；溢写前对数<br>据进行排序，排序按照对 key 的索引进行字典顺序排序，排序的手段快排；溢写产生大量溢<br>写文件，需要对溢写文件进行归并排序；对溢写的文件也可以进行 Combiner 操作，前提是<br>汇总操作，求平均值不行。最后将文件按照分区存储到磁盘，等待 Reduce 端拉取。<br>每个 Reduce 拉取 Map 端对应分区的数据。拉取数据后先存储到内存中，内存不够<br>了，再存储到磁盘。拉取完所有数据后，采用归并排序将内存和磁盘中的数据都进行排序。<br>在进入 Reduce 方法前，可以对数据进行分组操作。</p>
-
+                <h3 id="spark中的RDD是什么，有哪些特性"><a href="#spark中的RDD是什么，有哪些特性" class="headerlink" title="spark中的RDD是什么，有哪些特性?"></a>spark中的RDD是什么，有哪些特性?</h3><h5 id="1、RDD（Resilient-Distributed-Dataset）叫做分布式数据集，是Spark中最基本的数据抽象，它代表一个不可变、可分区、里面的元素可并行计算的集合。"><a href="#1、RDD（Resilient-Distributed-Dataset）叫做分布式数据集，是Spark中最基本的数据抽象，它代表一个不可变、可分区、里面的元素可并行计算的集合。" class="headerlink" title="1、RDD（Resilient Distributed Dataset）叫做分布式数据集，是Spark中最基本的数据抽象，它代表一个不可变、可分区、里面的元素可并行计算的集合。"></a>1、RDD（Resilient Distributed Dataset）叫做分布式数据集，是Spark中最基本的数据抽象，它代表一个不可变、可分区、里面的元素可并行计算的集合。</h5><pre><code>- Dataset：就是一个集合，用于存放数据的
+- Distributed：分布式，可以并行在集群计算
+- Resilient：表示弹性的 
+    弹性表示 
+        1、RDD中的数据可以存储在内存或者是磁盘
+        2、RDD中的分区是可以改变的</code></pre><h5 id="2、五大特性："><a href="#2、五大特性：" class="headerlink" title="2、五大特性："></a>2、五大特性：</h5><pre><code>（1）A list of partitions 
+一个分区列表，RDD中的数据都存在一个分区列表里面
+（2）A function for computing each split 
+作用在每一个分区中的函数
+（3）A list of dependencies on other RDDs 
+一个RDD依赖于其他多个RDD，这个点很重要，RDD的容错机制就是依据这个特性而来的
+（4）Optionally, a Partitioner for key-value RDDs (e.g. to say that the RDD is hash-partitioned) 
+可选的，针对于kv类型的RDD才具有这个特性，作用是决定了数据的来源以及数据处理后的去向
+（5）Optionally, a list of preferred locations to compute each split on (e.g. block locations for an HDFS file) 
+可选项，数据本地性，数据位置最优</code></pre>
             </div>
             <hr/>
 
@@ -506,7 +519,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yoursite.com/2020/06/27/shuffle/">http://yoursite.com/2020/06/27/shuffle/</a>
+                    <a href="http://yoursite.com/2020/06/27/sparkb/">http://yoursite.com/2020/06/27/sparkb/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -976,20 +989,20 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/06/27/sparkha/">
+                <a href="/2020/06/27/sparkg/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="如何配置spark master的HA？">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="Spark有哪些优化方法?">
                         
-                        <span class="card-title">如何配置spark master的HA？</span>
+                        <span class="card-title">Spark有哪些优化方法?</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            如何配置spark master的HA？1)配置zookeeper
-2)修改spark_env.sh文件,spark的master参数不在指定，添加如下代码到各个master节点  export SPARK_DAEMON_JAVA_OPTS
+                            Spark有哪些优化方法?spark调优比较复杂，但是大体可以分为三个方面来进行1）平台层面的调优：防止不必要的jar包分发，提高数据的本地性，选择高效的存储格式如parquet
+2）应用程序层面的调优：过滤操作符的优化降低过多小任务，降低
                         
                     </div>
                     <div class="publish-info">
@@ -1014,26 +1027,20 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/06/27/mrSpark/">
+                <a href="/2020/06/27/sparka/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="mr与spark的区别是什么？">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="Spark master HA 主从切换过程不会影响集群已有的作业运行，为什么?">
                         
-                        <span class="card-title">mr与spark的区别是什么？</span>
+                        <span class="card-title">Spark master HA 主从切换过程不会影响集群已有的作业运行，为什么?</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
-MR是基于进程，spark是基于线程
-Spark的多个task跑在同一个进程上，这个进程会伴随spark应用程序的整个生命周期，即使没有作业进行，进
+                            Spark master HA 主从切换过程不会影响集群已有的作业运行，为什么?&gt;  因为程序在运行之前，已经申请过资源了，driver和Executors通讯，不需要和master进行通讯的。
 
-程也是存在的
-
-MR的每一个task都是一个进程，当task完成时，进程也会结束
-所以
                         
                     </div>
                     <div class="publish-info">
