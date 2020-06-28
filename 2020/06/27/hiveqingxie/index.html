@@ -828,22 +828,22 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/06/28/mysqlindex/">
+                <a href="/2020/06/28/mapreduce/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="2020-06-28聊一聊你所遇到的mysql面试问题（☆☆☆☆☆）">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="2020-06-28说一说你了解的Mapreduce过程吧">
                         
-                        <span class="card-title">2020-06-28聊一聊你所遇到的mysql面试问题（☆☆☆☆☆）</span>
+                        <span class="card-title">2020-06-28说一说你了解的Mapreduce过程吧</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            索引相关Q：那你能说说什么是索引吗？
-A：索引其实是一种数据结构，能够帮助我们快速的检索数据库中的数据
-Q：那么索引具体采用的哪种数据结构呢？ 
-A：常见的MySQL主要有两种结构：Hash索引和B+ Tree索引，我们使用的是InnoDB
+                            Map task
+由程序内的InputFormat(默认实现类TextInputFormat)来读取外部数据，它会调用RecordReader(它的成员变量)的read()方法来读取，返回k,v键值对。
+
+读取的k,v键值对传送给map()
                         
                     </div>
                     <div class="publish-info">
@@ -854,15 +854,11 @@ A：常见的MySQL主要有两种结构：Hash索引和B+ Tree索引，我们使
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="post-category">
-                                    数据库
+                            <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/" class="post-category">
+                                    大数据
                                 </a>
                             
-                            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql/" class="post-category">
-                                    mysql
-                                </a>
-                            
-                            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql/%E9%9D%A2%E8%AF%95/" class="post-category">
+                            <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/%E9%9D%A2%E8%AF%95/" class="post-category">
                                     面试
                                 </a>
                             
@@ -873,8 +869,8 @@ A：常见的MySQL主要有两种结构：Hash索引和B+ Tree索引，我们使
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/mysql/">
-                        <span class="chip bg-color">mysql</span>
+                    <a href="/tags/MapReduce/">
+                        <span class="chip bg-color">MapReduce</span>
                     </a>
                     
                 </div>

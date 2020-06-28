@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="面试题, xueqy">
+    <meta name="keywords" content="2020-06-28说一说你了解的Mapreduce过程吧, xueqy">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>面试题 | xueqy</title>
+    <title>2020-06-28说一说你了解的Mapreduce过程吧 | xueqy</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -267,12 +267,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">面试题</h1>
+                    <h1 class="description center-align post-title">2020-06-28说一说你了解的Mapreduce过程吧</h1>
                 </div>
             </div>
         </div>
@@ -389,8 +389,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/">
-                                <span class="chip bg-color"></span>
+                            <a href="/tags/MapReduce/">
+                                <span class="chip bg-color">MapReduce</span>
                             </a>
                         
                     </div>
@@ -401,12 +401,12 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/" class="post-category">
-                                
+                            <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/" class="post-category">
+                                大数据
                             </a>
                         
-                            <a href="/" class="post-category">
-                                
+                            <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/%E9%9D%A2%E8%AF%95/" class="post-category">
+                                面试
                             </a>
                         
                     </div>
@@ -418,7 +418,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-06-27
+                    2020-06-28
                 </div>
                 
 
@@ -434,7 +434,37 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>🎉  <a href="/2020/06/28/mapreduce/">说一说你了解的Mapreduce过程吧</a><br>🎉  <a href="/2020/06/28/mysqlindex/">聊一聊你所遇到的mysql面试问题（☆☆☆☆☆）</a><br>🎉  <a href="/2020/06/27/hiveqingxie/">聊一聊你所遇到的数据倾斜问题</a><br>🎉  <a href="/2020/06/27/shuffle/">聊一聊MapReduce的Shuffle过程吧</a><br>🎉  <a href="/2020/06/27/sparkha/">如何配置spark master的HA?</a><br>🎉  <a href="/2020/06/27/sparka/">Spark master HA 主从切换过程不会影响集群已有的作业运行，为什么?</a><br>🎉  <a href="/2020/06/27/sparkb/">spark中的RDD是什么，有哪些特性?</a><br>🎉  <a href="/2020/06/27/sparkc/">RDD中reduceBykey与groupByKey哪个性能好，为什么?</a><br>🎉  <a href="/2020/06/27/sparkd/">spark streming在实时处理时会发生什么故障，如何停止，解决?</a><br>🎉  <a href="/2020/06/27/sparke/">spark streaming 读取kafka数据的两种方式?</a><br>🎉  <a href="/2020/06/27/sparkf/">spark 如何防止内存溢出?</a><br>🎉  <a href="/2020/06/27/sparkg/">Spark有哪些优化方法?</a><br>🎉  <a href="/2020/06/27/mrSpark/">mr与spark的区别是什么？（☆☆☆☆☆）</a> </p>
+                <h4 id="Map-task"><a href="#Map-task" class="headerlink" title="Map task"></a>Map task</h4><ul>
+<li><p>由程序内的InputFormat(默认实现类TextInputFormat)来读取外部数据，它会调用RecordReader(它的成员变量)的read()方法来读取，返回k,v键值对。</p>
+</li>
+<li><p>读取的k,v键值对传送给map()方法，作为其入参来执行用户定义的map逻辑。</p>
+</li>
+<li><p>context.write方法被调用时，outputCollector组件会将map()方法的输出结果写入到环形缓冲区内。</p>
+</li>
+<li><p>环形缓冲区其实就是一个数组，后端不断接受数据的同时，前端数据不断被溢出，长度用完后读取的新数据再从前端开始覆盖。这个缓冲区默认大小100M，可以通过MR.SORT.MB(应该是它)配置。</p>
+</li>
+<li><p>spiller组件会从环形缓冲区溢出文件，这过程会按照定义的partitioner分区(默认是hashpartition)，并且按照key.compareTo进行排序(底层主要用快排和外部排序)，若有combiner也会执行combiner。spiller的不断工作，会不断溢出许多小文件。这些文件仍在map task所处机器上。</p>
+</li>
+<li><p>小文件执行merge(合并)，行程分区且区内有序的大文件(归并排序，会再一次调用combiner)。</p>
+</li>
+<li><p>Reduce会根据自己的分区，去所有map task中，从文件读取对应的数据。</p>
+</li>
+</ul>
+<h4 id="Reduce-task"><a href="#Reduce-task" class="headerlink" title="Reduce task"></a>Reduce task</h4><ul>
+<li><p>.reduce task通过网络向map task获取某一分区的数据。</p>
+</li>
+<li><p>通过GroupingComparator()分辨同一组的数据，把他们发送给reduce(k,iterator)方法</p>
+</li>
+</ul>
+<blockquote>
+<p> (这里多个数据合成一组时，只取其中一个key，取得是第一个)。</p>
+</blockquote>
+<ul>
+<li><p>调用context.write()方法，会让OutPurFormat调用RecodeWriter的write()方法将处理结果写入到数据仓库中。写出的只有一个分区的文件数据.</p>
+</li>
+<li><p>就此mapreduce的工作结束，其中map的context.write()调用后，开始聚合数据写入到reduce的过程叫做Shuffle，是mapreduce的核心所在。</p>
+</li>
+</ul>
 
             </div>
             <hr/>
@@ -460,7 +490,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yoursite.com/interview/index.html">http://yoursite.com/interview/index.html</a>
+                    <a href="http://yoursite.com/2020/06/28/mapreduce/">http://yoursite.com/2020/06/28/mapreduce/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -498,8 +528,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/">
-                                    <span class="chip bg-color"></span>
+                                <a href="/tags/MapReduce/">
+                                    <span class="chip bg-color">MapReduce</span>
                                 </a>
                             
                         </div>
@@ -804,52 +834,57 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/interview/index.html">
+                <a href="/2020/06/28/mysqlindex/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="面试题">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="2020-06-28聊一聊你所遇到的mysql面试问题（☆☆☆☆☆）">
                         
-                        <span class="card-title">面试题</span>
+                        <span class="card-title">2020-06-28聊一聊你所遇到的mysql面试问题（☆☆☆☆☆）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            🎉  说一说你了解的Mapreduce过程吧🎉  聊一聊你所遇到的mysql面试问题（☆☆☆☆☆）🎉  聊一聊你所遇到的数据倾斜问题🎉  聊一聊MapReduce的Shuffle过程吧🎉  如何配置spark master的HA?
+                            索引相关Q：那你能说说什么是索引吗？
+A：索引其实是一种数据结构，能够帮助我们快速的检索数据库中的数据
+Q：那么索引具体采用的哪种数据结构呢？ 
+A：常见的MySQL主要有两种结构：Hash索引和B+ Tree索引，我们使用的是InnoDB
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-27
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-06-28
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/" class="post-category">
-                                    
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="post-category">
+                                    数据库
                                 </a>
                             
-                            <a href="/" class="post-category">
-                                    
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql/" class="post-category">
+                                    mysql
+                                </a>
+                            
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql/%E9%9D%A2%E8%AF%95/" class="post-category">
+                                    面试
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/">
-                        <span class="chip bg-color"></span>
+                    <a href="/tags/mysql/">
+                        <span class="chip bg-color">mysql</span>
                     </a>
                     
                 </div>
@@ -860,22 +895,23 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/interview/index.html">
+                <a href="/2020/06/27/hiveqingxie/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="面试题">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="2020-06-27聊一聊你所遇到的数据倾斜问题（☆☆☆☆☆）">
                         
-                        <span class="card-title">面试题</span>
+                        <span class="card-title">2020-06-27聊一聊你所遇到的数据倾斜问题（☆☆☆☆☆）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            🎉  说一说你了解的Mapreduce过程吧🎉  聊一聊你所遇到的mysql面试问题（☆☆☆☆☆）🎉  聊一聊你所遇到的数据倾斜问题🎉  聊一聊MapReduce的Shuffle过程吧🎉  如何配置spark master的HA?
+                            聊一聊你所遇到的数据倾斜问题（☆☆☆☆☆）1. 倾斜原因：map输出数据按key Hash的分配到reduce中，由于key分布不均匀、业务数据本身的特、建表时考虑不周、等原因造成的reduce 上的数据量差异过大。
+ （1）key分布不均
                         
                     </div>
                     <div class="publish-info">
@@ -886,24 +922,27 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/" class="post-category">
-                                    
+                            <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/" class="post-category">
+                                    大数据
                                 </a>
                             
-                            <a href="/" class="post-category">
-                                    
+                            <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/%E9%9D%A2%E8%AF%95/" class="post-category">
+                                    面试
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/">
-                        <span class="chip bg-color"></span>
+                    <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/">
+                        <span class="chip bg-color">大数据</span>
+                    </a>
+                    
+                    <a href="/tags/hive/">
+                        <span class="chip bg-color">hive</span>
                     </a>
                     
                 </div>
