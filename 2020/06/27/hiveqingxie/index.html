@@ -828,22 +828,21 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/06/28/mapreduce/">
+                <a href="/2020/06/28/codesort/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="2020-06-28说一说你了解的Mapreduce过程吧">
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="说一说你面试中的几种排序">
                         
-                        <span class="card-title">2020-06-28说一说你了解的Mapreduce过程吧</span>
+                        <span class="card-title">说一说你面试中的几种排序</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Map task
-由程序内的InputFormat(默认实现类TextInputFormat)来读取外部数据，它会调用RecordReader(它的成员变量)的read()方法来读取，返回k,v键值对。
-
-读取的k,v键值对传送给map()
+                            快排：private static void QuickSort(int[] num, int left, int right){
+        // 如果left=right，即数组中只剩一个元素时，直接返回
+        if (l
                         
                     </div>
                     <div class="publish-info">
@@ -854,11 +853,11 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/" class="post-category">
-                                    大数据
+                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
+                                    算法
                                 </a>
                             
-                            <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/%E9%9D%A2%E8%AF%95/" class="post-category">
+                            <a href="/categories/%E7%AE%97%E6%B3%95/%E9%9D%A2%E8%AF%95/" class="post-category">
                                     面试
                                 </a>
                             
@@ -869,8 +868,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/MapReduce/">
-                        <span class="chip bg-color">MapReduce</span>
+                    <a href="/tags/%E9%9D%A2%E8%AF%95/">
+                        <span class="chip bg-color">面试</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%8E%92%E5%BA%8F/">
+                        <span class="chip bg-color">排序</span>
                     </a>
                     
                 </div>
@@ -957,8 +960,6 @@ MR的每一个task都是一个进程，当task完成时，进程也会结束
 <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
 
 <!-- 代码语言 -->
-
-<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
 
 
 <!-- 代码块复制 -->

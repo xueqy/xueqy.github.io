@@ -445,7 +445,15 @@
                 <h3 id="Spark有哪些优化方法"><a href="#Spark有哪些优化方法" class="headerlink" title="Spark有哪些优化方法?"></a>Spark有哪些优化方法?</h3><h4 id="spark调优比较复杂，但是大体可以分为三个方面来进行"><a href="#spark调优比较复杂，但是大体可以分为三个方面来进行" class="headerlink" title="spark调优比较复杂，但是大体可以分为三个方面来进行"></a>spark调优比较复杂，但是大体可以分为三个方面来进行</h4><p>1）平台层面的调优：防止不必要的jar包分发，提高数据的本地性，选择高效的存储格式如parquet</p>
 <p>2）应用程序层面的调优：过滤操作符的优化降低过多小任务，降低单条记录的资源开销，处理数据倾斜，复用RDD进行缓存，作业并行化执行等等</p>
 <p>3）JVM层面的调优：设置合适的资源量，设置合理的JVM，启用高效的序列化方法如kyro，增大off head内存等等</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">.&#x2F;bin&#x2F;spark-submit \</span><br><span class="line">  --master yarn-cluster \</span><br><span class="line">  --num-executors 100 \</span><br><span class="line">  --executor-memory 6G \</span><br><span class="line">  --executor-cores 4 \</span><br><span class="line">  --driver-memory 1G \</span><br><span class="line">  --conf spark.default.parallelism&#x3D;1000 \</span><br><span class="line">  --conf spark.storage.memoryFraction&#x3D;0.5 \</span><br><span class="line">  --conf spark.shuffle.memoryFraction&#x3D;0.3 \</span><br></pre></td></tr></table></figure>
+<pre><code>./bin/spark-submit \
+  --master yarn-cluster \
+  --num-executors 100 \
+  --executor-memory 6G \
+  --executor-cores 4 \
+  --driver-memory 1G \
+  --conf spark.default.parallelism=1000 \
+  --conf spark.storage.memoryFraction=0.5 \
+  --conf spark.shuffle.memoryFraction=0.3 \</code></pre>
             </div>
             <hr/>
 
@@ -954,8 +962,6 @@
 <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
 
 <!-- 代码语言 -->
-
-<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
 
 
 <!-- 代码块复制 -->

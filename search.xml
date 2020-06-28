@@ -158,21 +158,12 @@
   <entry>
     <title>spark中的RDD是什么，有哪些特性?</title>
     <url>/2020/06/27/sparkb/</url>
-    <content><![CDATA[<h3 id="spark中的RDD是什么，有哪些特性"><a href="#spark中的RDD是什么，有哪些特性" class="headerlink" title="spark中的RDD是什么，有哪些特性?"></a>spark中的RDD是什么，有哪些特性?</h3><h5 id="1、RDD（Resilient-Distributed-Dataset）叫做分布式数据集，是Spark中最基本的数据抽象，它代表一个不可变、可分区、里面的元素可并行计算的集合。"><a href="#1、RDD（Resilient-Distributed-Dataset）叫做分布式数据集，是Spark中最基本的数据抽象，它代表一个不可变、可分区、里面的元素可并行计算的集合。" class="headerlink" title="1、RDD（Resilient Distributed Dataset）叫做分布式数据集，是Spark中最基本的数据抽象，它代表一个不可变、可分区、里面的元素可并行计算的集合。"></a>1、RDD（Resilient Distributed Dataset）叫做分布式数据集，是Spark中最基本的数据抽象，它代表一个不可变、可分区、里面的元素可并行计算的集合。</h5><pre><code>- Dataset：就是一个集合，用于存放数据的
-- Distributed：分布式，可以并行在集群计算
-- Resilient：表示弹性的 
-    弹性表示 
-        1、RDD中的数据可以存储在内存或者是磁盘
-        2、RDD中的分区是可以改变的</code></pre><h5 id="2、五大特性："><a href="#2、五大特性：" class="headerlink" title="2、五大特性："></a>2、五大特性：</h5><pre><code>（1）A list of partitions 
-一个分区列表，RDD中的数据都存在一个分区列表里面
-（2）A function for computing each split 
-作用在每一个分区中的函数
-（3）A list of dependencies on other RDDs 
-一个RDD依赖于其他多个RDD，这个点很重要，RDD的容错机制就是依据这个特性而来的
-（4）Optionally, a Partitioner for key-value RDDs (e.g. to say that the RDD is hash-partitioned) 
-可选的，针对于kv类型的RDD才具有这个特性，作用是决定了数据的来源以及数据处理后的去向
-（5）Optionally, a list of preferred locations to compute each split on (e.g. block locations for an HDFS file) 
-可选项，数据本地性，数据位置最优</code></pre>]]></content>
+    <content><![CDATA[<h3 id="spark中的RDD是什么，有哪些特性"><a href="#spark中的RDD是什么，有哪些特性" class="headerlink" title="spark中的RDD是什么，有哪些特性?"></a>spark中的RDD是什么，有哪些特性?</h3><h5 id="1、RDD（Resilient-Distributed-Dataset）叫做分布式数据集，是Spark中最基本的数据抽象，它代表一个不可变、可分区、里面的元素可并行计算的集合。"><a href="#1、RDD（Resilient-Distributed-Dataset）叫做分布式数据集，是Spark中最基本的数据抽象，它代表一个不可变、可分区、里面的元素可并行计算的集合。" class="headerlink" title="1、RDD（Resilient Distributed Dataset）叫做分布式数据集，是Spark中最基本的数据抽象，它代表一个不可变、可分区、里面的元素可并行计算的集合。"></a>1、RDD（Resilient Distributed Dataset）叫做分布式数据集，是Spark中最基本的数据抽象，它代表一个不可变、可分区、里面的元素可并行计算的集合。</h5><ul>
+<li>Dataset：就是一个集合，用于存放数据的</li>
+<li>Distributed：分布式，可以并行在集群计算</li>
+<li>Resilient：表示弹性的<br>  弹性表示<br>1、RDD中的数据可以存储在内存或者是磁盘<br>2、RDD中的分区是可以改变的<h5 id="2、五大特性："><a href="#2、五大特性：" class="headerlink" title="2、五大特性："></a>2、五大特性：</h5>（1）A list of partitions<br>一个分区列表，RDD中的数据都存在一个分区列表里面<br>（2）A function for computing each split<br>作用在每一个分区中的函数<br>（3）A list of dependencies on other RDDs<br>一个RDD依赖于其他多个RDD，这个点很重要，RDD的容错机制就是依据这个特性而来的<br>（4）Optionally, a Partitioner for key-value RDDs (e.g. to say that the RDD is hash-partitioned)<br>可选的，针对于kv类型的RDD才具有这个特性，作用是决定了数据的来源以及数据处理后的去向<br>（5）Optionally, a list of preferred locations to compute each split on (e.g. block locations for an HDFS file)<br>可选项，数据本地性，数据位置最优</li>
+</ul>
+]]></content>
       <categories>
         <category>大数据</category>
         <category>面试</category>
@@ -262,7 +253,15 @@
     <content><![CDATA[<h3 id="Spark有哪些优化方法"><a href="#Spark有哪些优化方法" class="headerlink" title="Spark有哪些优化方法?"></a>Spark有哪些优化方法?</h3><h4 id="spark调优比较复杂，但是大体可以分为三个方面来进行"><a href="#spark调优比较复杂，但是大体可以分为三个方面来进行" class="headerlink" title="spark调优比较复杂，但是大体可以分为三个方面来进行"></a>spark调优比较复杂，但是大体可以分为三个方面来进行</h4><p>1）平台层面的调优：防止不必要的jar包分发，提高数据的本地性，选择高效的存储格式如parquet</p>
 <p>2）应用程序层面的调优：过滤操作符的优化降低过多小任务，降低单条记录的资源开销，处理数据倾斜，复用RDD进行缓存，作业并行化执行等等</p>
 <p>3）JVM层面的调优：设置合适的资源量，设置合理的JVM，启用高效的序列化方法如kyro，增大off head内存等等</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.&#x2F;bin&#x2F;spark-submit \</span><br><span class="line">  --master yarn-cluster \</span><br><span class="line">  --num-executors 100 \</span><br><span class="line">  --executor-memory 6G \</span><br><span class="line">  --executor-cores 4 \</span><br><span class="line">  --driver-memory 1G \</span><br><span class="line">  --conf spark.default.parallelism&#x3D;1000 \</span><br><span class="line">  --conf spark.storage.memoryFraction&#x3D;0.5 \</span><br><span class="line">  --conf spark.shuffle.memoryFraction&#x3D;0.3 \</span><br></pre></td></tr></table></figure>]]></content>
+<pre><code>./bin/spark-submit \
+  --master yarn-cluster \
+  --num-executors 100 \
+  --executor-memory 6G \
+  --executor-cores 4 \
+  --driver-memory 1G \
+  --conf spark.default.parallelism=1000 \
+  --conf spark.storage.memoryFraction=0.5 \
+  --conf spark.shuffle.memoryFraction=0.3 \</code></pre>]]></content>
       <categories>
         <category>大数据</category>
         <category>面试</category>
@@ -422,6 +421,123 @@
       </categories>
       <tags>
         <tag>MapReduce</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>说一说你面试中的几种排序</title>
+    <url>/2020/06/28/codesort/</url>
+    <content><![CDATA[<h4 id="快排："><a href="#快排：" class="headerlink" title="快排："></a>快排：</h4><pre><code>private static void QuickSort(int[] num, int left, int right){
+        // 如果left=right，即数组中只剩一个元素时，直接返回
+        if (left &gt;= right){
+            return;
+        }
+        // 设置最左边的元素为基准值
+        int key = num[left];
+        // 数组中比key小的放在左边，比key大的放在右边
+      int i = left;
+        int j = right;
+        while (i &lt; j){
+            // j向左移动，直到碰到比key小的数
+            while (num[j] &gt;= key &amp;&amp; i&lt;j){
+                j--;
+            }
+            // i向右移动，直到碰到比key大的数
+            while (num[i] &lt;= key &amp;&amp; i&lt;j){
+                i++;
+            }
+            // i和j指向的元素交换
+            if (i &lt; j){
+                int temp = num[i];
+                num[i] = num[j];
+                num[j] = temp;
+            }
+        }
+        num[left] = num[i];
+        num[i] = key;
+        QuickSort(num, left, i-1);
+        QuickSort(num, i+1, right);
+}</code></pre><h4 id="冒泡排序："><a href="#冒泡排序：" class="headerlink" title="冒泡排序："></a>冒泡排序：</h4><pre><code>public static void main(String[] args) {
+        //冒泡排序算法
+        int[] numbers=new int[]{1,5,8,2,3,9,4};
+        int i,j;
+        for(i=0;i&lt;numbers.length-1;i++)
+        {
+            for(j=0;j&lt;numbers.length-1-i;j++)
+            {
+                if(numbers[j]&gt;numbers[j+1])
+                {
+                    int temp=numbers[j];
+                    numbers[j]=numbers[j+1];
+                    numbers[j+1]=temp;
+                }
+            }
+        }
+        System.out.println(&quot;从小到大排序后的结果是:&quot;);
+        for(i=0;i&lt;numbers.length;i++)
+            System.out.print(numbers[i]+&quot; &quot;);
+}</code></pre><h4 id="给定两个Node，-找到这两个node的共同的父节点"><a href="#给定两个Node，-找到这两个node的共同的父节点" class="headerlink" title="给定两个Node， 找到这两个node的共同的父节点"></a>给定两个Node， 找到这两个node的共同的父节点</h4><pre><code>function commonParentNode(oNode1, oNode2) {
+    var on1_parents = getParents(oNode1);
+    var on2_parents = getParents(oNode2);
+    var i = on1_parents.length;
+    var j = on2_parents.length;
+    for(; i &gt;= 0 &amp;&amp; j &gt;= 0 &amp;&amp; on1_parents[i] === on2_parents[j]; i--, j--);
+    return on1_parents[i+1];
+}
+
+function getParents(oNode) {
+    var parents = [];
+    var parent = oNode;
+    while(parent) {
+        parents.push(parent);
+        parent = parent.parentElement;
+    }
+    return parents;
+}</code></pre><h4 id="合并两个有序链表"><a href="#合并两个有序链表" class="headerlink" title="合并两个有序链表"></a>合并两个有序链表</h4><pre><code>public static Node mergeTwoList(Node head1, Node head2) {
+        //递归结束条件
+        if (head1 == null &amp;&amp; head2 == null) {
+            return null;
+        }
+        if (head1 == null) {
+            return head2;
+        }
+        if (head2 == null) {
+            return head1;
+        }
+        //合并后的链表
+        Node head = null;
+        if (head1.data &gt; head2.data) {
+            //把head较小的结点给头结点
+            head = head2;
+            //继续递归head2
+            head.next = mergeTwoList(head1, head2.next);
+        } else {
+            head = head1;
+            head.next = mergeTwoList(head1.next, head2);
+        }
+        return head;
+}</code></pre><h4 id="腾讯的一道面试题：如何快速找到位置长度单链表的中间节点？普通方法，就是先遍历，在从头找到2-length的中间节点。算法复杂度是：O-3-n-2-。而更快的方法就是利用快慢指针的原理。"><a href="#腾讯的一道面试题：如何快速找到位置长度单链表的中间节点？普通方法，就是先遍历，在从头找到2-length的中间节点。算法复杂度是：O-3-n-2-。而更快的方法就是利用快慢指针的原理。" class="headerlink" title="腾讯的一道面试题：如何快速找到位置长度单链表的中间节点？普通方法，就是先遍历，在从头找到2/length的中间节点。算法复杂度是：O(3*n/2)。而更快的方法就是利用快慢指针的原理。"></a>腾讯的一道面试题：如何快速找到位置长度单链表的中间节点？普通方法，就是先遍历，在从头找到2/length的中间节点。算法复杂度是：O(3*n/2)。而更快的方法就是利用快慢指针的原理。</h4><pre><code>int GetMidNode(LinkList *L,int elem){ 
+LinkList *search,*mid; 
+mid = search = L; //指向头结点 
+while (search-&gt;next != NULL){ 
+//当存在下个结点的时候 
+if (search-&gt;next-&gt;next!=NULL) {
+//检查下个的下个节点是否为空 
+search = search-&gt;next-&gt;next; 
+mid = mid-&gt;next; 
+} 
+else 
+search = search-&gt;next; 
+} 
+elem = mid-&gt;data;
+ return elem; 
+}</code></pre>]]></content>
+      <categories>
+        <category>算法</category>
+        <category>面试</category>
+      </categories>
+      <tags>
+        <tag>面试</tag>
+        <tag>排序</tag>
       </tags>
   </entry>
 </search>

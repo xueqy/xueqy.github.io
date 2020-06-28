@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="2020-06-28聊一聊你所遇到的mysql面试问题（☆☆☆☆☆）, xueqy">
+    <meta name="keywords" content="说一说你面试中的几种排序, xueqy">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>2020-06-28聊一聊你所遇到的mysql面试问题（☆☆☆☆☆） | xueqy</title>
+    <title>说一说你面试中的几种排序 | xueqy</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -267,12 +267,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">2020-06-28聊一聊你所遇到的mysql面试问题（☆☆☆☆☆）</h1>
+                    <h1 class="description center-align post-title">说一说你面试中的几种排序</h1>
                 </div>
             </div>
         </div>
@@ -389,8 +389,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/mysql/">
-                                <span class="chip bg-color">mysql</span>
+                            <a href="/tags/%E9%9D%A2%E8%AF%95/">
+                                <span class="chip bg-color">面试</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%8E%92%E5%BA%8F/">
+                                <span class="chip bg-color">排序</span>
                             </a>
                         
                     </div>
@@ -401,15 +405,11 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="post-category">
-                                数据库
+                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
+                                算法
                             </a>
                         
-                            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql/" class="post-category">
-                                mysql
-                            </a>
-                        
-                            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql/%E9%9D%A2%E8%AF%95/" class="post-category">
+                            <a href="/categories/%E7%AE%97%E6%B3%95/%E9%9D%A2%E8%AF%95/" class="post-category">
                                 面试
                             </a>
                         
@@ -438,83 +438,111 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="索引相关"><a href="#索引相关" class="headerlink" title="索引相关"></a>索引相关</h4><p>Q：那你能说说什么是索引吗？</p>
-<p>A：索引其实是一种数据结构，能够帮助我们快速的检索数据库中的数据</p>
-<p>Q：那么索引具体采用的哪种数据结构呢？ </p>
-<p>A：常见的MySQL主要有两种结构：Hash索引和B+ Tree索引，我们使用的是InnoDB引擎，默认的是B+树</p>
-<blockquote>
-<p>这里我耍了一个小心机，特意说了一下索引和存储引擎有关。希望面试官可以问我一些关于存储引擎的问题。然而面试官并没有被我带跑…</p>
-</blockquote>
-<p>Q：既然你提到InnoDB使用的B+ 树的索引模型，那么你知道为什么采用B+ 树吗？这和Hash索引比较起来有什么优缺点吗？</p>
-<p>A：（突然觉得这道题有点难，但是我还是凭借着自己的知识储备简单的回答上一些）因为Hash索引底层是哈希表，哈希表是一种以key-value存储数据的结构，所以多个数据在存储关系上是完全没有任何顺序关系的，所以，对于区间查询是无法直接通过索引查询的，就需要全表扫描。所以，哈希索引只适用于等值查询的场景。而B+ 树是一种多路平衡查询树，所以他的节点是天然有序的（左子节点小于父节点、父节点小于右子节点），所以对于范围查询的时候不需要做全表扫描</p>
-<p>Q：除了上面这个范围查询的，你还能说出其他的一些区别吗？ </p>
-<p>A：</p>
-<blockquote>
-<p>B+ Tree索引和Hash索引区别？<br>哈希索引适合等值查询，但是无法进行范围查询<br>哈希索引没办法利用索引完成排序<br>哈希索引不支持多列联合索引的最左匹配规则<br>如果有大量重复键值的情况下，哈希索引的效率会很低，因为存在哈希碰撞问题</p>
-</blockquote>
-<h4 id="聚簇索引、覆盖索引"><a href="#聚簇索引、覆盖索引" class="headerlink" title="聚簇索引、覆盖索引"></a><strong>聚簇索引、覆盖索引</strong></h4><p>Q：刚刚我们聊到B+ Tree ，那你知道B+ Tree的叶子节点都可以存哪些东西吗？</p>
-<p>A：InnoDB的B+ Tree可能存储的是整行数据，也有可能是主键的值</p>
-<p>Q：那这两者有什么区别吗？ </p>
-<p>A：（当他问我叶子节点的时候，其实我就猜到他可能要问我聚簇索引和非聚簇索引了）在 InnoDB 里，索引B+ Tree的叶子节点存储了整行数据的是主键索引，也被称之为聚簇索引。而索引B+ Tree的叶子节点存储了主键的值的是非主键索引，也被称之为非聚簇索引</p>
-<p>Q：那么，聚簇索引和非聚簇索引，在查询数据的时候有区别吗？</p>
-<p>A：聚簇索引查询会更快？</p>
-<p>Q：为什么呢？ </p>
-<p>A：因为主键索引树的叶子节点直接就是我们要查询的整行数据了。而非主键索引的叶子节点是主键的值，查到主键的值以后，还需要再通过主键的值再进行一次查询</p>
-<p>Q：刚刚你提到主键索引查询只会查一次，而非主键索引需要回表查询多次。（后来我才知道，原来这个过程叫做回表）是所有情况都是这样的吗？非主键索引一定会查询多次吗？</p>
-<p>A：（额、这个问题我回答的不好，后来我自己查资料才知道，通过覆盖索引也可以只查询一次）</p>
-<h4 id="覆盖索引？"><a href="#覆盖索引？" class="headerlink" title="覆盖索引？"></a><strong>覆盖索引？</strong></h4><p>覆盖索引（covering index）指一个查询语句的执行只用从索引中就能够取得，不必从数据表中读取。也可以称之为实现了索引覆盖。</p>
-<p>当一条查询语句符合覆盖索引条件时，MySQL只需要通过索引就可以返回查询所需要的数据，这样避免了查到索引后再返回表操作，减少I/O提高效率。</p>
-<p>如，表covering_index_sample中有一个普通索引 idx_key1_key2(key1,key2)。</p>
-<p>当我们通过SQL语句：select key2 from covering_index_sample where key1 = ‘keytest’;的时候，就可以通过覆盖索引查询，无需回表。</p>
-<h4 id="联合索引、最左前缀匹配"><a href="#联合索引、最左前缀匹配" class="headerlink" title="联合索引、最左前缀匹配"></a><strong>联合索引、最左前缀匹配</strong></h4><p>Q：不知道的话没关系，想问一下，你们在创建索引的时候都会考虑哪些因素呢？</p>
-<p>A：我们一般对于查询概率比较高，经常作为where条件的字段设置索引</p>
-<p>Q： 那你们有用过联合索引吗？ </p>
-<p>A：用过呀，我们有对一些表中创建过联合索引</p>
-<p>Q：那你们在创建联合索引的时候，需要做联合索引多个字段之间顺序你们是如何选择的呢？ </p>
-<p>A：我们把识别度最高的字段放到最前面</p>
-<p>Q：为什么这么做呢？</p>
-<p>A：（这个问题有点把我问蒙了，稍微有些慌乱）这样的话可能命中率会高一点吧。。。</p>
-<p>Q： 那你知道最左前缀匹配吗？</p>
-<p>A：（我突然想起来原来面试官是想问这个，怪自己刚刚为什么就没想到这个呢。）哦哦哦。您刚刚问的是这个意思啊，在创建多列索引时，我们根据业务需求，where子句中使用最频繁的一列放在最左边，因为MySQL索引查询会遵循最左前缀匹配的原则，即最左优先，在检索数据时从联合索引的最左边开始匹配。所以当我们创建一个联合索引的时候，如(key1,key2,key3)，相当于创建了（key1）、(key1,key2)和(key1,key2,key3)三个索引，这就是最左匹配原则</p>
-<p>虽然我一开始有点懵，没有联想到最左前缀匹配，但是面试官还是引导了我。很友善。</p>
-<h4 id="索引下推、查询优化"><a href="#索引下推、查询优化" class="headerlink" title="索引下推、查询优化"></a><strong>索引下推、查询优化</strong></h4><p>Q：你们线上用的MySQL是哪个版本啊呢？ </p>
-<p>A：我们MySQL是5.7 </p>
-<p>Q：那你知道在MySQL 5.6中，对索引做了哪些优化吗？ </p>
-<p>A：不好意思，这个我没有去了解过。（事后我查了一下，有一个比较重要的 ：Index Condition Pushdown Optimization）</p>
-<p>Index Condition Pushdown（索引下推）</p>
-<p>MySQL 5.6引入了索引下推优化，默认开启，使用SET optimizer_switch = ‘index_condition_pushdown=off’;可以将其关闭。官方文档中给的例子和解释如下：</p>
-<p>people表中（zipcode，lastname，firstname）构成一个索引</p>
-<p>SELECT * FROM people WHERE zipcode=’95054’ AND lastname LIKE ‘%etrunia%’ AND address LIKE ‘%Main Street%’;</p>
-<p>如果没有使用索引下推技术，则MySQL会通过zipcode=’95054’从存储引擎中查询对应的数据，返回到MySQL服务端，然后MySQL服务端基于lastname LIKE ‘%etrunia%’和address LIKE ‘%Main Street%’来判断数据是否符合条件。</p>
-<p>如果使用了索引下推技术，则MYSQL首先会返回符合zipcode=’95054’的索引，然后根据lastname LIKE ‘%etrunia%’和address LIKE ‘%Main Street%’来判断索引是否符合条件。如果符合条件，则根据该索引来定位对应的数据，如果不符合，则直接reject掉。有了索引下推优化，可以在有like条件查询的情况下，减少回表次数。</p>
-<p>Q：你们创建的那么多索引，到底有没有生效，或者说你们的SQL语句有没有使用索引查询你们有统计过吗？</p>
-<p>A：这个还没有统计过，除非遇到慢SQL的时候我们才会去排查 </p>
-<p>Q：那排查的时候，有什么手段可以知道有没有走索引查询呢？</p>
-<p>A：可以通过explain查看sql语句的执行计划，通过执行计划来分析索引使用情况</p>
-<p>Q：那什么情况下会发生明明创建了索引，但是执行的时候并没有通过索引呢？ </p>
-<p>A：（大概记得和优化器有关，但是这个问题并没有回答好）</p>
-<h4 id="查询优化器？"><a href="#查询优化器？" class="headerlink" title="查询优化器？"></a>查询优化器？</h4><p>一条SQL语句的查询，可以有不同的执行方案，至于最终选择哪种方案，需要通过优化器进行选择，选择执行成本最低的方案。</p>
-<p>在一条单表查询语句真正执行之前，MySQL的查询优化器会找出执行该语句所有可能使用的方案，对比之后找出成本最低的方案。</p>
-<p>这个成本最低的方案就是所谓的执行计划。优化过程大致如下：</p>
-<p>1、根据搜索条件，找出所有可能使用的索引 </p>
-<p>2、计算全表扫描的代价 </p>
-<p>3、计算使用不同索引执行查询的代价 </p>
-<p>4、对比各种执行方案的代价，找出成本最低的那一个</p>
-<p>Q：哦，索引有关的知识我们暂时就问这么多吧。你们线上数据的事务隔离级别是什么呀？ </p>
-<p>A：(后面关于事务隔离级别的问题了，就不展开了)<br>Read Uncommitted（读取未提交内容）</p>
-<p>在该隔离级别，所有事务都可以看到其他未提交事务的执行结果。本隔离级别很少用于实际应用，因为它的性能也不比其他级别好多少。读取未提交的数据，也被称之为脏读（Dirty Read）。</p>
-<p>Read Committed（读取提交内容）</p>
-<p>这是大多数数据库系统的默认隔离级别（但不是MySQL默认的）。它满足了隔离的简单定义：一个事务只能看见已经提交事务所做的改变。这种隔离级别 也支持所谓的不可重复读（Nonrepeatable Read），因为同一事务的其他实例在该实例处理其间可能会有新的commit，所以同一select可能返回不同结果。</p>
-<p>Repeatable Read（可重读）</p>
-<p>这是MySQL的默认事务隔离级别，它确保同一事务的多个实例在并发读取数据时，会看到同样的数据行。不过理论上，这会导致另一个棘手的问题：幻读 （Phantom Read）。简单的说，幻读指当用户读取某一范围的数据行时，另一个事务又在该范围内插入了新行，当用户再读取该范围的数据行时，会发现有新的“幻影” 行。InnoDB和Falcon存储引擎通过多版本并发控制（MVCC，Multiversion Concurrency Control）机制解决了该问题。</p>
-<p>Serializable（可串行化）</p>
-<p>这是最高的隔离级别，它通过强制事务排序，使之不可能相互冲突，从而解决幻读问题。简言之，它是在每个读的数据行上加上共享锁。在这个级别，可能导致大量的超时现象和锁竞争。</p>
-<p>出现问题</p>
-<p>这四种隔离级别采取不同的锁类型来实现，若读取的是同一个数据的话，就容易发生问题。例如：</p>
-<p>脏读(Drity Read)：某个事务已更新一份数据，另一个事务在此时读取了同一份数据，由于某些原因，前一个RollBack了操作，则后一个事务所读取的数据就会是不正确的。</p>
-<p>不可重复读(Non-repeatable read):在一个事务的两次查询之中数据不一致，这可能是两次查询过程中间插入了一个事务更新的原有的数据。</p>
-<p>幻读(Phantom Read):在一个事务的两次查询中数据笔数不一致，例如有一个事务查询了几列(Row)数据，而另一个事务却在此时插入了新的几列数据，先前的事务在接下来的查询中，就会发现有几列数据是它先前所没有的。</p>
-<h4 id="查询相关"><a href="#查询相关" class="headerlink" title="查询相关"></a>查询相关</h4>
+                <h4 id="快排："><a href="#快排：" class="headerlink" title="快排："></a>快排：</h4><pre><code>private static void QuickSort(int[] num, int left, int right){
+        // 如果left=right，即数组中只剩一个元素时，直接返回
+        if (left &gt;= right){
+            return;
+        }
+        // 设置最左边的元素为基准值
+        int key = num[left];
+        // 数组中比key小的放在左边，比key大的放在右边
+      int i = left;
+        int j = right;
+        while (i &lt; j){
+            // j向左移动，直到碰到比key小的数
+            while (num[j] &gt;= key &amp;&amp; i&lt;j){
+                j--;
+            }
+            // i向右移动，直到碰到比key大的数
+            while (num[i] &lt;= key &amp;&amp; i&lt;j){
+                i++;
+            }
+            // i和j指向的元素交换
+            if (i &lt; j){
+                int temp = num[i];
+                num[i] = num[j];
+                num[j] = temp;
+            }
+        }
+        num[left] = num[i];
+        num[i] = key;
+        QuickSort(num, left, i-1);
+        QuickSort(num, i+1, right);
+}</code></pre><h4 id="冒泡排序："><a href="#冒泡排序：" class="headerlink" title="冒泡排序："></a>冒泡排序：</h4><pre><code>public static void main(String[] args) {
+        //冒泡排序算法
+        int[] numbers=new int[]{1,5,8,2,3,9,4};
+        int i,j;
+        for(i=0;i&lt;numbers.length-1;i++)
+        {
+            for(j=0;j&lt;numbers.length-1-i;j++)
+            {
+                if(numbers[j]&gt;numbers[j+1])
+                {
+                    int temp=numbers[j];
+                    numbers[j]=numbers[j+1];
+                    numbers[j+1]=temp;
+                }
+            }
+        }
+        System.out.println(&quot;从小到大排序后的结果是:&quot;);
+        for(i=0;i&lt;numbers.length;i++)
+            System.out.print(numbers[i]+&quot; &quot;);
+}</code></pre><h4 id="给定两个Node，-找到这两个node的共同的父节点"><a href="#给定两个Node，-找到这两个node的共同的父节点" class="headerlink" title="给定两个Node， 找到这两个node的共同的父节点"></a>给定两个Node， 找到这两个node的共同的父节点</h4><pre><code>function commonParentNode(oNode1, oNode2) {
+    var on1_parents = getParents(oNode1);
+    var on2_parents = getParents(oNode2);
+    var i = on1_parents.length;
+    var j = on2_parents.length;
+    for(; i &gt;= 0 &amp;&amp; j &gt;= 0 &amp;&amp; on1_parents[i] === on2_parents[j]; i--, j--);
+    return on1_parents[i+1];
+}
+
+function getParents(oNode) {
+    var parents = [];
+    var parent = oNode;
+    while(parent) {
+        parents.push(parent);
+        parent = parent.parentElement;
+    }
+    return parents;
+}</code></pre><h4 id="合并两个有序链表"><a href="#合并两个有序链表" class="headerlink" title="合并两个有序链表"></a>合并两个有序链表</h4><pre><code>public static Node mergeTwoList(Node head1, Node head2) {
+        //递归结束条件
+        if (head1 == null &amp;&amp; head2 == null) {
+            return null;
+        }
+        if (head1 == null) {
+            return head2;
+        }
+        if (head2 == null) {
+            return head1;
+        }
+        //合并后的链表
+        Node head = null;
+        if (head1.data &gt; head2.data) {
+            //把head较小的结点给头结点
+            head = head2;
+            //继续递归head2
+            head.next = mergeTwoList(head1, head2.next);
+        } else {
+            head = head1;
+            head.next = mergeTwoList(head1.next, head2);
+        }
+        return head;
+}</code></pre><h4 id="腾讯的一道面试题：如何快速找到位置长度单链表的中间节点？普通方法，就是先遍历，在从头找到2-length的中间节点。算法复杂度是：O-3-n-2-。而更快的方法就是利用快慢指针的原理。"><a href="#腾讯的一道面试题：如何快速找到位置长度单链表的中间节点？普通方法，就是先遍历，在从头找到2-length的中间节点。算法复杂度是：O-3-n-2-。而更快的方法就是利用快慢指针的原理。" class="headerlink" title="腾讯的一道面试题：如何快速找到位置长度单链表的中间节点？普通方法，就是先遍历，在从头找到2/length的中间节点。算法复杂度是：O(3*n/2)。而更快的方法就是利用快慢指针的原理。"></a>腾讯的一道面试题：如何快速找到位置长度单链表的中间节点？普通方法，就是先遍历，在从头找到2/length的中间节点。算法复杂度是：O(3*n/2)。而更快的方法就是利用快慢指针的原理。</h4><pre><code>int GetMidNode(LinkList *L,int elem){ 
+LinkList *search,*mid; 
+mid = search = L; //指向头结点 
+while (search-&gt;next != NULL){ 
+//当存在下个结点的时候 
+if (search-&gt;next-&gt;next!=NULL) {
+//检查下个的下个节点是否为空 
+search = search-&gt;next-&gt;next; 
+mid = mid-&gt;next; 
+} 
+else 
+search = search-&gt;next; 
+} 
+elem = mid-&gt;data;
+ return elem; 
+}</code></pre>
             </div>
             <hr/>
 
@@ -539,7 +567,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yoursite.com/2020/06/28/mysqlindex/">http://yoursite.com/2020/06/28/mysqlindex/</a>
+                    <a href="http://yoursite.com/2020/06/28/codesort/">http://yoursite.com/2020/06/28/codesort/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -577,8 +605,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/mysql/">
-                                    <span class="chip bg-color">mysql</span>
+                                <a href="/tags/%E9%9D%A2%E8%AF%95/">
+                                    <span class="chip bg-color">面试</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%8E%92%E5%BA%8F/">
+                                    <span class="chip bg-color">排序</span>
                                 </a>
                             
                         </div>
@@ -883,71 +915,9 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
-            <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
-            <div class="card">
-                <a href="/2020/06/28/mysqlindex/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="2020-06-28聊一聊你所遇到的mysql面试问题（☆☆☆☆☆）">
-                        
-                        <span class="card-title">2020-06-28聊一聊你所遇到的mysql面试问题（☆☆☆☆☆）</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            索引相关Q：那你能说说什么是索引吗？
-A：索引其实是一种数据结构，能够帮助我们快速的检索数据库中的数据
-Q：那么索引具体采用的哪种数据结构呢？ 
-A：常见的MySQL主要有两种结构：Hash索引和B+ Tree索引，我们使用的是InnoDB
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-28
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="post-category">
-                                    数据库
-                                </a>
-                            
-                            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql/" class="post-category">
-                                    mysql
-                                </a>
-                            
-                            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql/%E9%9D%A2%E8%AF%95/" class="post-category">
-                                    面试
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/mysql/">
-                        <span class="chip bg-color">mysql</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
         <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
                 <a href="/2020/06/28/mapreduce/">
                     <div class="card-image">
@@ -968,9 +938,9 @@ A：常见的MySQL主要有两种结构：Hash索引和B+ Tree索引，我们使
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-28
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-06-28
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -992,6 +962,64 @@ A：常见的MySQL主要有两种结构：Hash索引和B+ Tree索引，我们使
                     
                     <a href="/tags/MapReduce/">
                         <span class="chip bg-color">MapReduce</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/06/27/hiveqingxie/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="2020-06-27聊一聊你所遇到的数据倾斜问题（☆☆☆☆☆）">
+                        
+                        <span class="card-title">2020-06-27聊一聊你所遇到的数据倾斜问题（☆☆☆☆☆）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            聊一聊你所遇到的数据倾斜问题（☆☆☆☆☆）1. 倾斜原因：map输出数据按key Hash的分配到reduce中，由于key分布不均匀、业务数据本身的特、建表时考虑不周、等原因造成的reduce 上的数据量差异过大。
+ （1）key分布不均
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-27
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/" class="post-category">
+                                    大数据
+                                </a>
+                            
+                            <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/%E9%9D%A2%E8%AF%95/" class="post-category">
+                                    面试
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/">
+                        <span class="chip bg-color">大数据</span>
+                    </a>
+                    
+                    <a href="/tags/hive/">
+                        <span class="chip bg-color">hive</span>
                     </a>
                     
                 </div>
