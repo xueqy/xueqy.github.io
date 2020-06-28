@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="xueqy">
+    <meta name="keywords" content="分类: 大数据, xueqy">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>xueqy</title>
+    <title>分类: 大数据 | xueqy</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -263,56 +263,9 @@
 
 </header>
 
-    
-<style>
-    .carousel-control {
-        width: 45px;
-        height: 45px;
-        line-height: 55px;
-        border-radius: 45px;
-        background: transparent;
-        cursor: pointer;
-        z-index: 100;
-    }
-
-    #prev-cover {
-        position: absolute;
-        top: 48%;
-        left: 8px;
-    }
-
-    #next-cover {
-        position: absolute;
-        top: 48%;
-        right: 8px;;
-    }
-
-    #prev-cover i {
-        margin-right: 3px;
-    }
-
-    #next-cover i {
-        margin-left: 3px;
-    }
-
-    .carousel-control:hover {
-        background-color: rgba(0, 0, 0, .4);
-    }
-
-    .carousel-control i {
-        color: #fff;
-        font-size: 2.4rem;
-    }
-</style>
-
-
-
-<div class="carousel carousel-slider center index-cover" data-indicators="true" style="margin-top: -64px;">
-    
-
-    <div class="carousel-item red white-text bg-cover about-cover">
-        <div class="container">
-            <div class="row">
+    <div class="bg-cover pd-header about-cover">
+    <div class="container">
+    <div class="row">
     <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
         <div class="brand">
             <div class="title center-align">
@@ -349,180 +302,86 @@
 </script>
 
 
-
-            <div class="cover-btns">
-                <a href="#indexCard" class="waves-effect waves-light btn">
-                    <i class="fa fa-angle-double-down"></i>开始阅读
-                </a>
-
-                
-            </div>
-            <div class="cover-social-link">
-    <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
-        <i class="fab fa-github"></i>
-    </a>
-
-
-
-    <a href="mailto:1059081877@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
-        <i class="fas fa-envelope-open"></i>
-    </a>
-
-
-
-
-
-
-
-    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1059081877" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1059081877" data-position="top" data-delay="50">
-        <i class="fab fa-qq"></i>
-    </a>
-
-
-
-
-
-
-
-    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
-        <i class="fas fa-rss"></i>
-    </a>
-
-</div>
-        </div>
     </div>
-
-    
 </div>
-
-<script>
-    $(function () {
-        let coverSlider = $('.carousel');
-
-        //用户触摸轮播自动 restartPlay 是否生效
-        let initUserPressedOrDraggedActive = false
-
-        //用户触摸轮播自动 restartPlay
-        function initUserPressedOrDragged(instance) {
-            setInterval(() => {
-                if (instance.pressed || instance.dragged) {
-                    // console.log('initUserPressedOrDragged: ',instance.pressed,instance.dragged)
-                    restartPlay()
-                }
-            }, 1000)
-        }
-
-        coverSlider.carousel({
-            duration: Number('120'),
-            fullWidth: true,
-            indicators: 'true' === 'true',
-            onCycleTo() {
-                if (!initUserPressedOrDraggedActive) {
-                    // console.log('initUserPressedOrDraggedActive')
-                    initUserPressedOrDragged(this)
-                    initUserPressedOrDraggedActive = true
-                }
-            },
-        })
-
-        let carouselIntervalId;
-        
-        // Loop to call the next cover article picture.
-        let autoCarousel = function () {
-            carouselIntervalId = setInterval(function () {
-                coverSlider.carousel('next');
-            }, 5000);
-        };
-        autoCarousel();
-        
-
-        function restartPlay() {
-            
-            clearInterval(carouselIntervalId);
-            autoCarousel();
-            
-        };
-
-        
-        // prev and next cover post.
-        $('#prev-cover').click(function () {
-            coverSlider.carousel('prev');
-            restartPlay();
-        });
-        $('#next-cover').click(function () {
-            coverSlider.carousel('next');
-            restartPlay();
-        });
-        
-    });
-</script>
-
-
 
 <main class="content">
 
     
-    <div id="indexCard" class="index-card">
-        <div class="container ">
-            <div class="card">
-                <div class="card-content">
-                    
-                        <div class="dream">
-    
-    <div class="title center-align">
-        <i class="far fa-lightbulb"></i>&nbsp;&nbsp;我的梦想
-    </div>
-    
-    <div class="row">
-        <div class="col l8 offset-l2 m10 offset-m1 s10 offset-s1 center-align text">
-            不是每个人都应该像我这样去建造一座水晶大教堂，但是每个人都应该拥有自己的梦想，设计自己的梦想，追求自己的梦想，实现自己的梦想。梦想是生命的灵魂，是心灵的灯塔，是引导人走向成功的信仰。有了崇高的梦想，只要矢志不渝地追求，梦想就会成为现实，奋斗就会变成壮举，生命就会创造奇迹。——罗伯·舒乐
+
+<div id="category-cloud" class="container chip-container">
+    <div class="card">
+        <div class="card-content">
+            <div class="tag-title center-align">
+                <i class="fas fa-bookmark"></i>&nbsp;&nbsp;文章分类
+            </div>
+            <div class="tag-chips">
+                
+                
+                
+                <a href="/categories/web%E5%89%8D%E7%AB%AF/" title="web前端: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #F9EBEA;">web前端
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/test/" title="test: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #F5EEF8;">test
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/" title="大数据: 11">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-active "
+                            style="background-color: #D5F5E3;">大数据
+                        <span class="tag-length">11</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/%E9%9D%A2%E8%AF%95/" title="面试: 11">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #E8F8F5;">面试
+                        <span class="tag-length">11</span>
+                    </span>
+                </a>
+                
+                
+            </div>
         </div>
     </div>
 </div>
 
-                    
-
-                    
-
-                    
-
-                    
-                    <div id="recommend-sections" class="recommend">
-                        
-
-
-
-                    </div>
-                    
-                </div>
-            </div>
-        </div>
-    </div>
-    
 
     
 
-    <!-- 所有文章卡片 -->
     <article id="articles" class="container articles">
-        <div class="row article-row">
+        <div class="row tags-posts">
             
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2020/06/27/hiveqingxie/">
-                        <div class="card-image">
+                    <a href="/2020/06/27/sparkg/">
+                        <div class="card-image tag-image">
                             
                             
-                            <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="2020-06-27聊一聊你所遇到的数据倾斜问题（☆☆☆☆☆）">
+                            <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="Spark有哪些优化方法?">
                             
-                            <span class="card-title">2020-06-27聊一聊你所遇到的数据倾斜问题（☆☆☆☆☆）</span>
+                            <span class="card-title">Spark有哪些优化方法?</span>
                         </div>
                     </a>
-
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                聊一聊你所遇到的数据倾斜问题（☆☆☆☆☆）1. 倾斜原因：map输出数据按key Hash的分配到reduce中，由于key分布不均匀、业务数据本身的特、建表时考虑不周、等原因造成的reduce 上的数据量差异过大。
- （1）key分布不均
+                                Spark有哪些优化方法?spark调优比较复杂，但是大体可以分为三个方面来进行1）平台层面的调优：防止不必要的jar包分发，提高数据的本地性，选择高效的存储格式如parquet
+2）应用程序层面的调优：过滤操作符的优化降低过多小任务，降低
                             
                         </div>
                         <div class="publish-info">
@@ -553,8 +412,12 @@
                             <span class="chip bg-color">大数据</span>
                         </a>
                         
-                        <a href="/tags/hive/">
-                            <span class="chip bg-color">hive</span>
+                        <a href="/tags/hadoop/">
+                            <span class="chip bg-color">hadoop</span>
+                        </a>
+                        
+                        <a href="/tags/spark/">
+                            <span class="chip bg-color">spark</span>
                         </a>
                         
                     </div>
@@ -562,10 +425,420 @@
                 </div>
             </div>
             
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/06/27/sparkf/">
+                        <div class="card-image tag-image">
+                            
+                            
+                            <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="spark 如何防止内存溢出?">
+                            
+                            <span class="card-title">spark 如何防止内存溢出?</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                spark 如何防止内存溢出?driver端的内存溢出可以增大driver的内存参数：spark.driver.memory (default 1g)这个参数用来设置Driver的内存。在Spark程序中，SparkContext，DAGS
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-27
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/" class="post-category">
+                                    大数据
+                                </a>
+                                
+                                <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/%E9%9D%A2%E8%AF%95/" class="post-category">
+                                    面试
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/">
+                            <span class="chip bg-color">大数据</span>
+                        </a>
+                        
+                        <a href="/tags/hadoop/">
+                            <span class="chip bg-color">hadoop</span>
+                        </a>
+                        
+                        <a href="/tags/spark/">
+                            <span class="chip bg-color">spark</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/06/27/sparke/">
+                        <div class="card-image tag-image">
+                            
+                            
+                            <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="spark streaming 读取kafka数据的两种方式?">
+                            
+                            <span class="card-title">spark streaming 读取kafka数据的两种方式?</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                spark streaming 读取kafka数据的两种方式?
+Receiver-base：使用Kafka的高层次Consumer API来实现。receiver从Kafka中获取的数据都存储在Spark Executor的内存中，然后Sp
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-27
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/" class="post-category">
+                                    大数据
+                                </a>
+                                
+                                <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/%E9%9D%A2%E8%AF%95/" class="post-category">
+                                    面试
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/">
+                            <span class="chip bg-color">大数据</span>
+                        </a>
+                        
+                        <a href="/tags/hadoop/">
+                            <span class="chip bg-color">hadoop</span>
+                        </a>
+                        
+                        <a href="/tags/spark/">
+                            <span class="chip bg-color">spark</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/06/27/sparkd/">
+                        <div class="card-image tag-image">
+                            
+                            
+                            <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="spark streming在实时处理时会发生什么故障，如何停止，解决?">
+                            
+                            <span class="card-title">spark streming在实时处理时会发生什么故障，如何停止，解决?</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                spark streming在实时处理时会发生什么故障，如何停止，解决?和Kafka整合时消息无序：
+修改Kafka的ack参数，当ack=1时，master确认收到消息就算投递成功。ack=0时，不需要收到消息便算成功，高效不准确。ack
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-27
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/" class="post-category">
+                                    大数据
+                                </a>
+                                
+                                <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/%E9%9D%A2%E8%AF%95/" class="post-category">
+                                    面试
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/">
+                            <span class="chip bg-color">大数据</span>
+                        </a>
+                        
+                        <a href="/tags/hadoop/">
+                            <span class="chip bg-color">hadoop</span>
+                        </a>
+                        
+                        <a href="/tags/spark/">
+                            <span class="chip bg-color">spark</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/06/27/sparkc/">
+                        <div class="card-image tag-image">
+                            
+                            
+                            <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="RDD中reduceBykey与groupByKey哪个性能好，为什么?">
+                            
+                            <span class="card-title">RDD中reduceBykey与groupByKey哪个性能好，为什么?</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                RDD中reduceBykey与groupByKey哪个性能好，为什么?（1）groupByKey()是对RDD中的所有数据做shuffle,根据不同的Key映射到不同的partition中再进行aggregate。
+（2）aggregat
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-27
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/" class="post-category">
+                                    大数据
+                                </a>
+                                
+                                <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/%E9%9D%A2%E8%AF%95/" class="post-category">
+                                    面试
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/">
+                            <span class="chip bg-color">大数据</span>
+                        </a>
+                        
+                        <a href="/tags/hadoop/">
+                            <span class="chip bg-color">hadoop</span>
+                        </a>
+                        
+                        <a href="/tags/spark/">
+                            <span class="chip bg-color">spark</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/06/27/sparkb/">
+                        <div class="card-image tag-image">
+                            
+                            
+                            <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="spark中的RDD是什么，有哪些特性?">
+                            
+                            <span class="card-title">spark中的RDD是什么，有哪些特性?</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                spark中的RDD是什么，有哪些特性?1、RDD（Resilient Distributed Dataset）叫做分布式数据集，是Spark中最基本的数据抽象，它代表一个不可变、可分区、里面的元素可并行计算的集合。- Dataset：就是
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-27
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/" class="post-category">
+                                    大数据
+                                </a>
+                                
+                                <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/%E9%9D%A2%E8%AF%95/" class="post-category">
+                                    面试
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/">
+                            <span class="chip bg-color">大数据</span>
+                        </a>
+                        
+                        <a href="/tags/hadoop/">
+                            <span class="chip bg-color">hadoop</span>
+                        </a>
+                        
+                        <a href="/tags/spark/">
+                            <span class="chip bg-color">spark</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/06/27/sparka/">
+                        <div class="card-image tag-image">
+                            
+                            
+                            <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="Spark master HA 主从切换过程不会影响集群已有的作业运行，为什么?">
+                            
+                            <span class="card-title">Spark master HA 主从切换过程不会影响集群已有的作业运行，为什么?</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                Spark master HA 主从切换过程不会影响集群已有的作业运行，为什么?&gt;  因为程序在运行之前，已经申请过资源了，driver和Executors通讯，不需要和master进行通讯的。
+
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-27
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/" class="post-category">
+                                    大数据
+                                </a>
+                                
+                                <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/%E9%9D%A2%E8%AF%95/" class="post-category">
+                                    面试
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/">
+                            <span class="chip bg-color">大数据</span>
+                        </a>
+                        
+                        <a href="/tags/hadoop/">
+                            <span class="chip bg-color">hadoop</span>
+                        </a>
+                        
+                        <a href="/tags/spark/">
+                            <span class="chip bg-color">spark</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/06/27/shuffle/">
+                        <div class="card-image tag-image">
+                            
+                            
+                            <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="聊一聊MapReduce的Shuffle过程吧">
+                            
+                            <span class="card-title">聊一聊MapReduce的Shuffle过程吧</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                聊一聊MapReduce的Shuffle过程吧Map 方法之后 Reduce 方法之前这段处理过程叫 ShuffleMap 方法之后，数据首先进入到分区方法，把数据标记好分区，然后把数据发送到环形缓冲区；环形缓冲区默认大小 100m，环形缓
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-27
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/" class="post-category">
+                                    大数据
+                                </a>
+                                
+                                <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/%E9%9D%A2%E8%AF%95/" class="post-category">
+                                    面试
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/">
+                            <span class="chip bg-color">大数据</span>
+                        </a>
+                        
+                        <a href="/tags/hadoop/">
+                            <span class="chip bg-color">hadoop</span>
+                        </a>
+                        
+                        <a href="/tags/spark/">
+                            <span class="chip bg-color">spark</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
                     <a href="/2020/06/27/mrSpark/">
-                        <div class="card-image">
+                        <div class="card-image tag-image">
                             
                             
                             <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="mr与spark的区别是什么？">
@@ -573,7 +846,6 @@
                             <span class="card-title">mr与spark的区别是什么？</span>
                         </div>
                     </a>
-
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
@@ -628,22 +900,22 @@ MR的每一个task都是一个进程，当task完成时，进程也会结束
                 </div>
             </div>
             
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2020/06/27/shuffle/">
-                        <div class="card-image">
+                    <a href="/2020/06/27/hiveqingxie/">
+                        <div class="card-image tag-image">
                             
                             
-                            <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="聊一聊MapReduce的Shuffle过程吧">
+                            <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="2020-06-27聊一聊你所遇到的数据倾斜问题（☆☆☆☆☆）">
                             
-                            <span class="card-title">聊一聊MapReduce的Shuffle过程吧</span>
+                            <span class="card-title">2020-06-27聊一聊你所遇到的数据倾斜问题（☆☆☆☆☆）</span>
                         </div>
                     </a>
-
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                聊一聊MapReduce的Shuffle过程吧Map 方法之后 Reduce 方法之前这段处理过程叫 ShuffleMap 方法之后，数据首先进入到分区方法，把数据标记好分区，然后把数据发送到环形缓冲区；环形缓冲区默认大小 100m，环形缓
+                                聊一聊你所遇到的数据倾斜问题（☆☆☆☆☆）1. 倾斜原因：map输出数据按key Hash的分配到reduce中，由于key分布不均匀、业务数据本身的特、建表时考虑不周、等原因造成的reduce 上的数据量差异过大。
+ （1）key分布不均
                             
                         </div>
                         <div class="publish-info">
@@ -674,430 +946,8 @@ MR的每一个task都是一个进程，当task完成时，进程也会结束
                             <span class="chip bg-color">大数据</span>
                         </a>
                         
-                        <a href="/tags/hadoop/">
-                            <span class="chip bg-color">hadoop</span>
-                        </a>
-                        
-                        <a href="/tags/spark/">
-                            <span class="chip bg-color">spark</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2020/06/27/sparka/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="Spark master HA 主从切换过程不会影响集群已有的作业运行，为什么?">
-                            
-                            <span class="card-title">Spark master HA 主从切换过程不会影响集群已有的作业运行，为什么?</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                Spark master HA 主从切换过程不会影响集群已有的作业运行，为什么?&gt;  因为程序在运行之前，已经申请过资源了，driver和Executors通讯，不需要和master进行通讯的。
-
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-27
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/" class="post-category">
-                                    大数据
-                                </a>
-                                
-                                <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/%E9%9D%A2%E8%AF%95/" class="post-category">
-                                    面试
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/">
-                            <span class="chip bg-color">大数据</span>
-                        </a>
-                        
-                        <a href="/tags/hadoop/">
-                            <span class="chip bg-color">hadoop</span>
-                        </a>
-                        
-                        <a href="/tags/spark/">
-                            <span class="chip bg-color">spark</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2020/06/27/sparkb/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="spark中的RDD是什么，有哪些特性?">
-                            
-                            <span class="card-title">spark中的RDD是什么，有哪些特性?</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                spark中的RDD是什么，有哪些特性?1、RDD（Resilient Distributed Dataset）叫做分布式数据集，是Spark中最基本的数据抽象，它代表一个不可变、可分区、里面的元素可并行计算的集合。- Dataset：就是
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-27
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/" class="post-category">
-                                    大数据
-                                </a>
-                                
-                                <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/%E9%9D%A2%E8%AF%95/" class="post-category">
-                                    面试
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/">
-                            <span class="chip bg-color">大数据</span>
-                        </a>
-                        
-                        <a href="/tags/hadoop/">
-                            <span class="chip bg-color">hadoop</span>
-                        </a>
-                        
-                        <a href="/tags/spark/">
-                            <span class="chip bg-color">spark</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2020/06/27/sparkc/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="RDD中reduceBykey与groupByKey哪个性能好，为什么?">
-                            
-                            <span class="card-title">RDD中reduceBykey与groupByKey哪个性能好，为什么?</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                RDD中reduceBykey与groupByKey哪个性能好，为什么?（1）groupByKey()是对RDD中的所有数据做shuffle,根据不同的Key映射到不同的partition中再进行aggregate。
-（2）aggregat
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-27
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/" class="post-category">
-                                    大数据
-                                </a>
-                                
-                                <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/%E9%9D%A2%E8%AF%95/" class="post-category">
-                                    面试
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/">
-                            <span class="chip bg-color">大数据</span>
-                        </a>
-                        
-                        <a href="/tags/hadoop/">
-                            <span class="chip bg-color">hadoop</span>
-                        </a>
-                        
-                        <a href="/tags/spark/">
-                            <span class="chip bg-color">spark</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2020/06/27/sparkd/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="spark streming在实时处理时会发生什么故障，如何停止，解决?">
-                            
-                            <span class="card-title">spark streming在实时处理时会发生什么故障，如何停止，解决?</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                spark streming在实时处理时会发生什么故障，如何停止，解决?和Kafka整合时消息无序：
-修改Kafka的ack参数，当ack=1时，master确认收到消息就算投递成功。ack=0时，不需要收到消息便算成功，高效不准确。ack
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-27
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/" class="post-category">
-                                    大数据
-                                </a>
-                                
-                                <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/%E9%9D%A2%E8%AF%95/" class="post-category">
-                                    面试
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/">
-                            <span class="chip bg-color">大数据</span>
-                        </a>
-                        
-                        <a href="/tags/hadoop/">
-                            <span class="chip bg-color">hadoop</span>
-                        </a>
-                        
-                        <a href="/tags/spark/">
-                            <span class="chip bg-color">spark</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2020/06/27/sparke/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="spark streaming 读取kafka数据的两种方式?">
-                            
-                            <span class="card-title">spark streaming 读取kafka数据的两种方式?</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                spark streaming 读取kafka数据的两种方式?
-Receiver-base：使用Kafka的高层次Consumer API来实现。receiver从Kafka中获取的数据都存储在Spark Executor的内存中，然后Sp
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-27
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/" class="post-category">
-                                    大数据
-                                </a>
-                                
-                                <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/%E9%9D%A2%E8%AF%95/" class="post-category">
-                                    面试
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/">
-                            <span class="chip bg-color">大数据</span>
-                        </a>
-                        
-                        <a href="/tags/hadoop/">
-                            <span class="chip bg-color">hadoop</span>
-                        </a>
-                        
-                        <a href="/tags/spark/">
-                            <span class="chip bg-color">spark</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2020/06/27/sparkf/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="spark 如何防止内存溢出?">
-                            
-                            <span class="card-title">spark 如何防止内存溢出?</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                spark 如何防止内存溢出?driver端的内存溢出可以增大driver的内存参数：spark.driver.memory (default 1g)这个参数用来设置Driver的内存。在Spark程序中，SparkContext，DAGS
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-27
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/" class="post-category">
-                                    大数据
-                                </a>
-                                
-                                <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/%E9%9D%A2%E8%AF%95/" class="post-category">
-                                    面试
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/">
-                            <span class="chip bg-color">大数据</span>
-                        </a>
-                        
-                        <a href="/tags/hadoop/">
-                            <span class="chip bg-color">hadoop</span>
-                        </a>
-                        
-                        <a href="/tags/spark/">
-                            <span class="chip bg-color">spark</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2020/06/27/sparkg/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="Spark有哪些优化方法?">
-                            
-                            <span class="card-title">Spark有哪些优化方法?</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                Spark有哪些优化方法?spark调优比较复杂，但是大体可以分为三个方面来进行1）平台层面的调优：防止不必要的jar包分发，提高数据的本地性，选择高效的存储格式如parquet
-2）应用程序层面的调优：过滤操作符的优化降低过多小任务，降低
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-27
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/" class="post-category">
-                                    大数据
-                                </a>
-                                
-                                <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/%E9%9D%A2%E8%AF%95/" class="post-category">
-                                    面试
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/">
-                            <span class="chip bg-color">大数据</span>
-                        </a>
-                        
-                        <a href="/tags/hadoop/">
-                            <span class="chip bg-color">hadoop</span>
-                        </a>
-                        
-                        <a href="/tags/spark/">
-                            <span class="chip bg-color">spark</span>
+                        <a href="/tags/hive/">
+                            <span class="chip bg-color">hive</span>
                         </a>
                         
                     </div>
@@ -1107,7 +957,6 @@ Receiver-base：使用Kafka的高层次Consumer API来实现。receiver从Kafka�
             
         </div>
     </article>
-
 </main>
 
 
@@ -1125,7 +974,7 @@ Receiver-base：使用Kafka的高层次Consumer API来实现。receiver从Kafka�
         </div>
         <div class="col s6 m4 l4">
             
-            <a href="/page/2/"
+            <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/page/2/"
                class="right btn-floating btn-large waves-effect waves-light bg-color">
                 <i class="fas fa-angle-right"></i>
             </a>

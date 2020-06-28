@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>bigdata</title>
+    <url>/2020/06/27/bigdata/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2020/06/26/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+]]></content>
+      <categories>
+        <category>web前端</category>
+      </categories>
+      <tags>
+        <tag>jQuery</tag>
+        <tag>表格</tag>
+        <tag>表单验证</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2020/06/26/hello/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+]]></content>
+      <categories>
+        <category>test</category>
+      </categories>
+      <tags>
+        <tag>test</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>2020-06-27聊一聊你所遇到的数据倾斜问题（☆☆☆☆☆）</title>
+    <url>/2020/06/27/hiveqingxie/</url>
+    <content><![CDATA[<h3 id="聊一聊你所遇到的数据倾斜问题（☆☆☆☆☆）"><a href="#聊一聊你所遇到的数据倾斜问题（☆☆☆☆☆）" class="headerlink" title="聊一聊你所遇到的数据倾斜问题（☆☆☆☆☆）"></a>聊一聊你所遇到的数据倾斜问题（☆☆☆☆☆）</h3><h4 id="1-倾斜原因："><a href="#1-倾斜原因：" class="headerlink" title="1. 倾斜原因："></a>1. 倾斜原因：</h4><p>map输出数据按key Hash的分配到reduce中，由于key分布不均匀、业务数据本身的特、建表时考虑不周、等原因造成的reduce 上的数据量差异过大。</p>
+<p> （1）key分布不均匀;</p>
+<p>（2）业务数据本身的特性;</p>
+<p>（3）建表时考虑不周;</p>
+<p>（4）某些SQL语句本身就有数据倾斜;</p>
+<p>如何避免：对于key为空产生的数据倾斜，可以对其赋予一个随机值。</p>
+<h4 id="2-解决方案"><a href="#2-解决方案" class="headerlink" title="2. 解决方案"></a>2. 解决方案</h4><h5 id="2-1-hive参数调节："><a href="#2-1-hive参数调节：" class="headerlink" title="2.1.hive参数调节："></a>2.1.hive参数调节：</h5><p>hive.map.aggr = true</p>
+<p>hive.groupby.skewindata=true</p>
+<p>有数据倾斜的时候进行负载均衡，当选项设定位true,生成的查询计划会有两个MR Job。第一个MR Job中，Map的输出结果集合会随机分布到Reduce中，每个Reduce做部分聚合操作，并输出结果，这样处理的结果是相同的Group By Key有可能被分发到不同的Reduce中，从而达到负载均衡的目的；第二个MR Job再根据预处理的数据结果按照Group By Key 分布到 Reduce 中（这个过程可以保证相同的 Group By Key 被分布到同一个Reduce中），最后完成最终的聚合操作。</p>
+<h5 id="2-2-SQL-语句调节："><a href="#2-2-SQL-语句调节：" class="headerlink" title="2.2 SQL 语句调节："></a>2.2 SQL 语句调节：</h5><p>① 选用join key分布最均匀的表作为驱动表。做好列裁剪和filter操作，以达到两表做join 的时候，数据量相对变小的效果。</p>
+<p>② 大小表Join：<br>使用map join让小的维度表（1000 条以下的记录条数）先进内存。在map端完成reduce.</p>
+<p>③ 大表Join大表：<br>把空值的key变成一个字符串加上随机数，把倾斜的数据分到不同的reduce上，由于null 值关联不上，处理后并不影响最终结果。</p>
+<p>④ count distinct大量相同特殊值:<br>count distinct 时，将值为空的情况单独处理，如果是计算count distinct，可以不用处理，直接过滤，在最后结果中加1。如果还有其他计算，需要进行group by，可以先将值为空的记录单独处理，再和其他计算结果进行union。</p>
+]]></content>
+      <categories>
+        <category>大数据</category>
+        <category>面试</category>
+      </categories>
+      <tags>
+        <tag>大数据</tag>
+        <tag>hive</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>mr与spark的区别是什么？</title>
+    <url>/2020/06/27/mrSpark/</url>
+    <content><![CDATA[<ul>
+<li>MR是基于进程，spark是基于线程</li>
+<li>Spark的多个task跑在同一个进程上，这个进程会伴随spark应用程序的整个生命周期，即使没有作业进行，进</li>
+</ul>
+<p>程也是存在的</p>
+<ul>
+<li>MR的每一个task都是一个进程，当task完成时，进程也会结束</li>
+<li>所以，spark比MR快的原因也在这，MR启动就需要申请资源，用完就销毁，但是spark把进程拿到以后，这个进</li>
+</ul>
+<p>程会一直存在，即使没有job在跑，所以后边的job可以直接启动，不需要再重新申请资源</p>
+<h4 id="速度"><a href="#速度" class="headerlink" title="速度"></a>速度</h4><p>spark把运算的中间数据存放在内存，迭代计算效率更高；MR的中间结果需要落地，需要保存到磁盘，这样必然</p>
+<p>会有磁盘IO操作，影响性能</p>
+<h3 id="容错性"><a href="#容错性" class="headerlink" title="容错性"></a>容错性</h3><p>spark容错性高，它通过弹性分布式数据集RDD来实现高效容错，RDD是一组分布式的存储在节点内存中的只读性</p>
+<p>质的数据集，这些集合石弹性的，某一部分丢失或者出错，可以通过整个数据集的计算流程的血缘关系来实现重</p>
+<p>建；MR的话容错可能只能重新计算了，成本较高</p>
+<h3 id="适用面"><a href="#适用面" class="headerlink" title="适用面"></a>适用面</h3><p>spark更加通用，spark提供了transformation和action这两大类的多个功能的api，另外还有流式处理</p>
+<p>sparkstreaming模块，图计算GraphX等；MR只提供了map和reduce两种操作，流计算以及其他模块的支持比较缺</p>
+<p>乏</p>
+<h3 id="框架和生态"><a href="#框架和生态" class="headerlink" title="框架和生态"></a>框架和生态</h3><p> Spark框架和生态更为复杂，首先由RDD、血缘lineage、执行时的有向无环图DAG、stage划分等等，</p>
+<p>很多时候spark作业都需要根据不同的业务场景的需要进行调优，以达到性能要求，MR框架及其生态相对较为简</p>
+<p>单，对性能的要求也相对较弱，但是运行较为稳定，适合长期后台运行</p>
+<h3 id="运行环境："><a href="#运行环境：" class="headerlink" title="运行环境："></a>运行环境：</h3><ul>
+<li><p>MR运行在YARN上，</p>
+</li>
+<li><p>spark</p>
+</li>
+</ul>
+<blockquote>
+<p>local：本地运行<br>standalone：使用Spark自带的资源管理框架，运行spark的应用<br>yarn：将spark应用类似mr一样，提交到yarn上运行<br>mesos：类似yarn的一种资源管理框架</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>大数据</category>
+        <category>面试</category>
+      </categories>
+      <tags>
+        <tag>大数据</tag>
+        <tag>hadoop</tag>
+        <tag>spark</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>聊一聊MapReduce的Shuffle过程吧</title>
+    <url>/2020/06/27/shuffle/</url>
+    <content><![CDATA[<h3 id="聊一聊MapReduce的Shuffle过程吧"><a href="#聊一聊MapReduce的Shuffle过程吧" class="headerlink" title="聊一聊MapReduce的Shuffle过程吧"></a>聊一聊MapReduce的Shuffle过程吧</h3><p><img src="/medias/shuffle.png" alt="shuffle"><br>Map 方法之后 Reduce 方法之前这段处理过程叫 Shuffle<br>Map 方法之后，数据首先进入到分区方法，把数据标记好分区，然后把数据发送到<br>环形缓冲区；环形缓冲区默认大小 100m，环形缓冲区达到 80%时，进行溢写；溢写前对数<br>据进行排序，排序按照对 key 的索引进行字典顺序排序，排序的手段快排；溢写产生大量溢<br>写文件，需要对溢写文件进行归并排序；对溢写的文件也可以进行 Combiner 操作，前提是<br>汇总操作，求平均值不行。最后将文件按照分区存储到磁盘，等待 Reduce 端拉取。<br>每个 Reduce 拉取 Map 端对应分区的数据。拉取数据后先存储到内存中，内存不够<br>了，再存储到磁盘。拉取完所有数据后，采用归并排序将内存和磁盘中的数据都进行排序。<br>在进入 Reduce 方法前，可以对数据进行分组操作。</p>
+]]></content>
+      <categories>
+        <category>大数据</category>
+        <category>面试</category>
+      </categories>
+      <tags>
+        <tag>大数据</tag>
+        <tag>hadoop</tag>
+        <tag>spark</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Spark master HA 主从切换过程不会影响集群已有的作业运行，为什么?</title>
+    <url>/2020/06/27/sparka/</url>
+    <content><![CDATA[<h3 id="Spark-master-HA-主从切换过程不会影响集群已有的作业运行，为什么"><a href="#Spark-master-HA-主从切换过程不会影响集群已有的作业运行，为什么" class="headerlink" title="Spark master HA 主从切换过程不会影响集群已有的作业运行，为什么?"></a>Spark master HA 主从切换过程不会影响集群已有的作业运行，为什么?</h3><p>&gt;  因为程序在运行之前，已经申请过资源了，driver和Executors通讯，不需要和master进行通讯的。</p>
+]]></content>
+      <categories>
+        <category>大数据</category>
+        <category>面试</category>
+      </categories>
+      <tags>
+        <tag>大数据</tag>
+        <tag>hadoop</tag>
+        <tag>spark</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>spark中的RDD是什么，有哪些特性?</title>
+    <url>/2020/06/27/sparkb/</url>
+    <content><![CDATA[<h3 id="spark中的RDD是什么，有哪些特性"><a href="#spark中的RDD是什么，有哪些特性" class="headerlink" title="spark中的RDD是什么，有哪些特性?"></a>spark中的RDD是什么，有哪些特性?</h3><h5 id="1、RDD（Resilient-Distributed-Dataset）叫做分布式数据集，是Spark中最基本的数据抽象，它代表一个不可变、可分区、里面的元素可并行计算的集合。"><a href="#1、RDD（Resilient-Distributed-Dataset）叫做分布式数据集，是Spark中最基本的数据抽象，它代表一个不可变、可分区、里面的元素可并行计算的集合。" class="headerlink" title="1、RDD（Resilient Distributed Dataset）叫做分布式数据集，是Spark中最基本的数据抽象，它代表一个不可变、可分区、里面的元素可并行计算的集合。"></a>1、RDD（Resilient Distributed Dataset）叫做分布式数据集，是Spark中最基本的数据抽象，它代表一个不可变、可分区、里面的元素可并行计算的集合。</h5><pre><code>- Dataset：就是一个集合，用于存放数据的
+- Distributed：分布式，可以并行在集群计算
+- Resilient：表示弹性的 
+    弹性表示 
+        1、RDD中的数据可以存储在内存或者是磁盘
+        2、RDD中的分区是可以改变的</code></pre><h5 id="2、五大特性："><a href="#2、五大特性：" class="headerlink" title="2、五大特性："></a>2、五大特性：</h5><pre><code>（1）A list of partitions 
+一个分区列表，RDD中的数据都存在一个分区列表里面
+（2）A function for computing each split 
+作用在每一个分区中的函数
+（3）A list of dependencies on other RDDs 
+一个RDD依赖于其他多个RDD，这个点很重要，RDD的容错机制就是依据这个特性而来的
+（4）Optionally, a Partitioner for key-value RDDs (e.g. to say that the RDD is hash-partitioned) 
+可选的，针对于kv类型的RDD才具有这个特性，作用是决定了数据的来源以及数据处理后的去向
+（5）Optionally, a list of preferred locations to compute each split on (e.g. block locations for an HDFS file) 
+可选项，数据本地性，数据位置最优</code></pre>]]></content>
+      <categories>
+        <category>大数据</category>
+        <category>面试</category>
+      </categories>
+      <tags>
+        <tag>大数据</tag>
+        <tag>hadoop</tag>
+        <tag>spark</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>RDD中reduceBykey与groupByKey哪个性能好，为什么?</title>
+    <url>/2020/06/27/sparkc/</url>
+    <content><![CDATA[<h3 id="RDD中reduceBykey与groupByKey哪个性能好，为什么"><a href="#RDD中reduceBykey与groupByKey哪个性能好，为什么" class="headerlink" title="RDD中reduceBykey与groupByKey哪个性能好，为什么?"></a>RDD中reduceBykey与groupByKey哪个性能好，为什么?</h3><p>（1）groupByKey()是对RDD中的所有数据做shuffle,根据不同的Key映射到不同的partition中再进行aggregate。</p>
+<p>（2）aggregateByKey()是先对每个partition中的数据根据不同的Key进行aggregate，然后将结果进行shuffle，完成各个partition之间的aggregate。因此，和groupByKey()相比，运算量小了很多。</p>
+<p> (3)  distinct()也是对RDD中的所有数据做shuffle进行aggregate后再去重。</p>
+<p>（4）reduceByKey()也是先在单台机器中计算，再将结果进行shuffle，减小运算量</p>
+]]></content>
+      <categories>
+        <category>大数据</category>
+        <category>面试</category>
+      </categories>
+      <tags>
+        <tag>大数据</tag>
+        <tag>hadoop</tag>
+        <tag>spark</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>spark streming在实时处理时会发生什么故障，如何停止，解决?</title>
+    <url>/2020/06/27/sparkd/</url>
+    <content><![CDATA[<h3 id="spark-streming在实时处理时会发生什么故障，如何停止，解决"><a href="#spark-streming在实时处理时会发生什么故障，如何停止，解决" class="headerlink" title="spark streming在实时处理时会发生什么故障，如何停止，解决?"></a>spark streming在实时处理时会发生什么故障，如何停止，解决?</h3><p>和Kafka整合时消息无序：</p>
+<p>修改Kafka的ack参数，当ack=1时，master确认收到消息就算投递成功。ack=0时，不需要收到消息便算成功，高效不准确。ack=all，master和server都要受到消息才算成功，准确不高效。</p>
+<p>StreamingContext.stop会把关联的SparkContext对象也停止，如果不想把SparkContext对象也停止的话可以把StremingContext.stop的可选参数stopSparkContext设为flase。一个SparkContext对象可以和多个streamingcontext对象关联。只要对前一个stremingcontext.stop(stopsparkcontext=false),然后再创建新的stremingcontext对象就可以了。</p>
+]]></content>
+      <categories>
+        <category>大数据</category>
+        <category>面试</category>
+      </categories>
+      <tags>
+        <tag>大数据</tag>
+        <tag>hadoop</tag>
+        <tag>spark</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>spark streaming 读取kafka数据的两种方式?</title>
+    <url>/2020/06/27/sparke/</url>
+    <content><![CDATA[<h3 id="spark-streaming-读取kafka数据的两种方式"><a href="#spark-streaming-读取kafka数据的两种方式" class="headerlink" title="spark streaming 读取kafka数据的两种方式?"></a>spark streaming 读取kafka数据的两种方式?</h3><ul>
+<li><strong>Receiver-base：</strong><br>使用Kafka的高层次Consumer API来实现。receiver从Kafka中获取的数据都存储在Spark Executor的内存中，然后Spark Streaming启动的job会去处理那些数据。然而，在默认的配置下，这种方式可能会因为底层的失败而丢失数据。如果要启用高可靠机制，让数据零丢失，就必须启用Spark Streaming的预写日志机制（Write Ahead Log，WAL）。该机制会同步地将接收到的Kafka数据写入分布式文件系统（比如HDFS）上的预写日志中。所以，即使底层节点出现了失败，也可以使用预写日志中的数据进行恢复。</li>
+<li><strong>Direct：</strong><br>Spark1.3中引入Direct方式，用来替代掉使用Receiver接收数据，这种方式会周期性地查询Kafka，获得每个topic+partition的最新的offset，从而定义每个batch的offset的范围。当处理数据的job启动时，就会使用Kafka的简单consumer api来获取Kafka指定offset范围的数据。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>大数据</category>
+        <category>面试</category>
+      </categories>
+      <tags>
+        <tag>大数据</tag>
+        <tag>hadoop</tag>
+        <tag>spark</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>spark 如何防止内存溢出?</title>
+    <url>/2020/06/27/sparkf/</url>
+    <content><![CDATA[<h3 id="spark-如何防止内存溢出"><a href="#spark-如何防止内存溢出" class="headerlink" title="spark 如何防止内存溢出?"></a>spark 如何防止内存溢出?</h3><h4 id="driver端的内存溢出"><a href="#driver端的内存溢出" class="headerlink" title="driver端的内存溢出"></a>driver端的内存溢出</h4><p>可以增大driver的内存参数：spark.driver.memory (default 1g)<br>这个参数用来设置Driver的内存。在Spark程序中，SparkContext，DAGScheduler都是运行在Driver端的。对应rdd的Stage切分也是在Driver端运行，如果用户自己写的程序有过多的步骤，切分出过多的Stage，这部分信息消耗的是Driver的内存，这个时候就需要调大Driver的内存。</p>
+<h4 id="map过程产生大量对象导致内存溢出"><a href="#map过程产生大量对象导致内存溢出" class="headerlink" title="map过程产生大量对象导致内存溢出"></a>map过程产生大量对象导致内存溢出</h4><p>这种溢出的原因是在单个map中产生了大量的对象导致的，例如：rdd.map(x=&gt;for(i &lt;- 1 to 10000) yield i.toString)，这个操作在rdd中，每个对象都产生了10000个对象，这肯定很容易产生内存溢出的问题。针对这种问题，在不增加内存的情况下，可以通过减少每个Task的大小，以便达到每个Task即使产生大量的对象Executor的内存也能够装得下。具体做法可以在会产生大量对象的map操作之前调用repartition方法，分区成更小的块传入map。例如：rdd.repartition(10000).map(x=&gt;for(i &lt;- 1 to 10000) yield i.toString)。<br>面对这种问题注意，不能使用rdd.coalesce方法，这个方法只能减少分区，不能增加分区，不会有shuffle的过程。</p>
+<h4 id="数据不平衡导致内存溢出"><a href="#数据不平衡导致内存溢出" class="headerlink" title="数据不平衡导致内存溢出"></a>数据不平衡导致内存溢出</h4><p>数据不平衡除了有可能导致内存溢出外，也有可能导致性能的问题，解决方法和上面说的类似，就是调用repartition重新分区。这里就不再累赘了。</p>
+<h4 id="shuffle后内存溢出"><a href="#shuffle后内存溢出" class="headerlink" title="shuffle后内存溢出"></a>shuffle后内存溢出</h4><p>shuffle内存溢出的情况可以说都是shuffle后，单个文件过大导致的。在Spark中，join，reduceByKey这一类型的过程，都会有shuffle的过程，在shuffle的使用，需要传入一个partitioner，大部分Spark中的shuffle操作，默认的partitioner都是HashPatitioner，默认值是父RDD中最大的分区数,这个参数通过spark.default.parallelism控制(在spark-sql中用spark.sql.shuffle.partitions) ， spark.default.parallelism参数只对HashPartitioner有效，所以如果是别的Partitioner或者自己实现的Partitioner就不能使用spark.default.parallelism这个参数来控制shuffle的并发量了。如果是别的partitioner导致的shuffle内存溢出，就需要从partitioner的代码增加partitions的数量。</p>
+<h4 id="standalone模式下资源分配不均匀导致内存溢出"><a href="#standalone模式下资源分配不均匀导致内存溢出" class="headerlink" title="standalone模式下资源分配不均匀导致内存溢出"></a>standalone模式下资源分配不均匀导致内存溢出</h4><p>在standalone的模式下如果配置了–total-executor-cores 和 –executor-memory 这两个参数，但是没有配置–executor-cores这个参数的话，就有可能导致，每个Executor的memory是一样的，但是cores的数量不同，那么在cores数量多的Executor中，由于能够同时执行多个Task，就容易导致内存溢出的情况。这种情况的解决方法就是同时配置–executor-cores或者spark.executor.cores参数，确保Executor资源分配均匀。</p>
+<h4 id="使用rdd-persist-StorageLevel-MEMORY-AND-DISK-SER-代替rdd-cache"><a href="#使用rdd-persist-StorageLevel-MEMORY-AND-DISK-SER-代替rdd-cache" class="headerlink" title="使用rdd.persist(StorageLevel.MEMORY_AND_DISK_SER)代替rdd.cache()"></a>使用rdd.persist(StorageLevel.MEMORY_AND_DISK_SER)代替rdd.cache()</h4><p>rdd.cache()和rdd.persist(Storage.MEMORY_ONLY)是等价的，在内存不足的时候rdd.cache()的数据会丢失，再次使用的时候会重算，而rdd.persist(StorageLevel.MEMORY_AND_DISK_SER)在内存不足的时候会存储在磁盘，避免重算，只是消耗点IO时间。</p>
+]]></content>
+      <categories>
+        <category>大数据</category>
+        <category>面试</category>
+      </categories>
+      <tags>
+        <tag>大数据</tag>
+        <tag>hadoop</tag>
+        <tag>spark</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Spark有哪些优化方法?</title>
+    <url>/2020/06/27/sparkg/</url>
+    <content><![CDATA[<h3 id="Spark有哪些优化方法"><a href="#Spark有哪些优化方法" class="headerlink" title="Spark有哪些优化方法?"></a>Spark有哪些优化方法?</h3><h4 id="spark调优比较复杂，但是大体可以分为三个方面来进行"><a href="#spark调优比较复杂，但是大体可以分为三个方面来进行" class="headerlink" title="spark调优比较复杂，但是大体可以分为三个方面来进行"></a>spark调优比较复杂，但是大体可以分为三个方面来进行</h4><p>1）平台层面的调优：防止不必要的jar包分发，提高数据的本地性，选择高效的存储格式如parquet</p>
+<p>2）应用程序层面的调优：过滤操作符的优化降低过多小任务，降低单条记录的资源开销，处理数据倾斜，复用RDD进行缓存，作业并行化执行等等</p>
+<p>3）JVM层面的调优：设置合适的资源量，设置合理的JVM，启用高效的序列化方法如kyro，增大off head内存等等</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.&#x2F;bin&#x2F;spark-submit \</span><br><span class="line">  --master yarn-cluster \</span><br><span class="line">  --num-executors 100 \</span><br><span class="line">  --executor-memory 6G \</span><br><span class="line">  --executor-cores 4 \</span><br><span class="line">  --driver-memory 1G \</span><br><span class="line">  --conf spark.default.parallelism&#x3D;1000 \</span><br><span class="line">  --conf spark.storage.memoryFraction&#x3D;0.5 \</span><br><span class="line">  --conf spark.shuffle.memoryFraction&#x3D;0.3 \</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>大数据</category>
+        <category>面试</category>
+      </categories>
+      <tags>
+        <tag>大数据</tag>
+        <tag>hadoop</tag>
+        <tag>spark</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>如何配置spark master的HA？</title>
+    <url>/2020/06/27/sparkha/</url>
+    <content><![CDATA[<h3 id="如何配置spark-master的HA？"><a href="#如何配置spark-master的HA？" class="headerlink" title="如何配置spark master的HA？"></a>如何配置spark master的HA？</h3><p>1)配置zookeeper</p>
+<p>2)修改spark_env.sh文件,spark的master参数不在指定，添加如下代码到各个master节点<br>  export SPARK_DAEMON_JAVA_OPTS=”-Dspark.deploy.recoveryMode=ZOOKEEPER -Dspark.deploy.zookeeper.url=zk01:2181,zk02:2181,zk03:2181 -Dspark.deploy.zookeeper.dir=/spark”</p>
+<p>3) 将spark_env.sh分发到各个节点</p>
+<p>4)找到一个master节点，执行./start-all.sh，会在这里启动主master,其他的master备节点，启动master命令: ./sbin/start-master.sh</p>
+<p>5)提交程序的时候指定master的时候要指定三台master，例如<br>./spark-shell –master spark://master01:7077,master02:7077,master03:7077</p>
+]]></content>
+      <categories>
+        <category>大数据</category>
+        <category>面试</category>
+      </categories>
+      <tags>
+        <tag>大数据</tag>
+        <tag>hadoop</tag>
+        <tag>spark</tag>
+      </tags>
+  </entry>
+</search>
