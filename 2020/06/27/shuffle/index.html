@@ -442,7 +442,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="聊一聊MapReduce的Shuffle过程吧"><a href="#聊一聊MapReduce的Shuffle过程吧" class="headerlink" title="聊一聊MapReduce的Shuffle过程吧"></a>聊一聊MapReduce的Shuffle过程吧</h3><p><img src="/medias/shuffle.png" alt="shuffle"><br>Map 方法之后 Reduce 方法之前这段处理过程叫 Shuffle<br>Map 方法之后，数据首先进入到分区方法，把数据标记好分区，然后把数据发送到<br>环形缓冲区；环形缓冲区默认大小 100m，环形缓冲区达到 80%时，进行溢写；溢写前对数<br>据进行排序，排序按照对 key 的索引进行字典顺序排序，排序的手段快排；溢写产生大量溢<br>写文件，需要对溢写文件进行归并排序；对溢写的文件也可以进行 Combiner 操作，前提是<br>汇总操作，求平均值不行。最后将文件按照分区存储到磁盘，等待 Reduce 端拉取。<br>每个 Reduce 拉取 Map 端对应分区的数据。拉取数据后先存储到内存中，内存不够<br>了，再存储到磁盘。拉取完所有数据后，采用归并排序将内存和磁盘中的数据都进行排序。<br>在进入 Reduce 方法前，可以对数据进行分组操作。</p>
+                <h3 id="聊一聊MapReduce的Shuffle过程吧"><a href="#聊一聊MapReduce的Shuffle过程吧" class="headerlink" title="聊一聊MapReduce的Shuffle过程吧"></a>聊一聊MapReduce的Shuffle过程吧</h3><p><img src="/medias/bigdata/shuffle.png" alt="shuffle"><br>Map 方法之后 Reduce 方法之前这段处理过程叫 Shuffle<br>Map 方法之后，数据首先进入到分区方法，把数据标记好分区，然后把数据发送到<br>环形缓冲区；环形缓冲区默认大小 100m，环形缓冲区达到 80%时，进行溢写；溢写前对数<br>据进行排序，排序按照对 key 的索引进行字典顺序排序，排序的手段快排；溢写产生大量溢<br>写文件，需要对溢写文件进行归并排序；对溢写的文件也可以进行 Combiner 操作，前提是<br>汇总操作，求平均值不行。最后将文件按照分区存储到磁盘，等待 Reduce 端拉取。<br>每个 Reduce 拉取 Map 端对应分区的数据。拉取数据后先存储到内存中，内存不够<br>了，再存储到磁盘。拉取完所有数据后，采用归并排序将内存和磁盘中的数据都进行排序。<br>在进入 Reduce 方法前，可以对数据进行分组操作。</p>
 
             </div>
             <hr/>
@@ -468,7 +468,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yoursite.com/2020/06/27/shuffle/">http://yoursite.com/2020/06/27/shuffle/</a>
+                    <a href="https://xueqy.github.io/2020/06/27/shuffle/">https://xueqy.github.io/2020/06/27/shuffle/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -960,6 +960,8 @@ MR的每一个task都是一个进程，当task完成时，进程也会结束
 
 <!-- 代码语言 -->
 
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
 
 <!-- 代码块复制 -->
 
@@ -970,10 +972,6 @@ MR的每一个task都是一个进程，当task完成时，进程也会结束
 
 
 <!-- 代码块折行 -->
-
-<style type="text/css">
-code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
-</style>
 
 
     </div>
