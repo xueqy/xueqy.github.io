@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="面试题, xueqy">
+    <meta name="keywords" content="数据分层, xueqy">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>面试题 | xueqy</title>
+    <title>数据分层 | xueqy</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -267,12 +267,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">面试题</h1>
+                    <h1 class="description center-align post-title">数据分层</h1>
                 </div>
             </div>
         </div>
@@ -389,8 +389,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/">
-                                <span class="chip bg-color"></span>
+                            <a href="/tags/%E9%9D%A2%E8%AF%95/">
+                                <span class="chip bg-color">面试</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%95%B0%E4%BB%93/">
+                                <span class="chip bg-color">数仓</span>
                             </a>
                         
                     </div>
@@ -401,12 +405,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/" class="post-category">
-                                
-                            </a>
-                        
-                            <a href="/" class="post-category">
-                                
+                            <a href="/categories/%E6%95%B0%E4%BB%93/" class="post-category">
+                                数仓
                             </a>
                         
                     </div>
@@ -418,7 +418,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-06-27
+                    2020-06-29
                 </div>
                 
 
@@ -434,7 +434,84 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>🎉  <a href="/2020/06/29/dataware/"> 数仓相关</a><br>🎉  <a href="/2020/06/29/sparkshffule/"> spark基础之shuffle机制和原理分析</a><br>🎉  <a href="/2020/06/29/rddinterview/"> RDD的一些面试问题</a><br>🎉  <a href="/2020/06/29/mrSparkshuffle/"> 简单说一下hadoop和spark的shuffle相同和差异？</a><br>🎉  <a href="/2020/06/29/sparkinfo/">spark有哪些组件,以及他们的功能是什么？</a><br>🎉  <a href="/2020/06/29/sparkflow/">Spark应用程序的执行过程</a><br>🎉  <a href="/2020/06/29/hdfscheck/">hdfs读写过程，以及数据完整性如何保证？</a><br>🎉  <a href="/2020/06/29/yarnflow/">谈一下Yarn的工作流程</a><br>🎉  <a href="/2020/06/29/hivefeature/">Hive有哪些方式保存元数据，各有什么特点？</a><br>🎉  <a href="/2020/06/29/sparksubmit/">spark-submit 中几个参数的意义</a><br>🎉  <a href="/2020/06/28/codesort/">说一说你面试中的几种排序</a><br>🎉  <a href="/2020/06/28/mapreduce/">说一说你了解的Mapreduce过程吧</a><br>🎉  <a href="/2020/06/28/mysqlindex/">聊一聊你所遇到的mysql面试问题</a><br>🎉  <a href="/2020/06/27/hiveqingxie/">聊一聊你所遇到的数据倾斜问题</a><br>🎉  <a href="/2020/06/27/shuffle/">聊一聊MapReduce的Shuffle过程吧</a><br>🎉  <a href="/2020/06/27/sparkha/">如何配置spark master的HA?</a><br>🎉  <a href="/2020/06/27/sparka/">Spark master HA 主从切换过程不会影响集群已有的作业运行，为什么?</a><br>🎉  <a href="/2020/06/27/sparkb/">spark中的RDD是什么，有哪些特性?</a><br>🎉  <a href="/2020/06/27/sparkc/">RDD中reduceBykey与groupByKey哪个性能好，为什么?</a><br>🎉  <a href="/2020/06/27/sparkd/">spark streming在实时处理时会发生什么故障，如何停止，解决?</a><br>🎉  <a href="/2020/06/27/sparke/">spark streaming 读取kafka数据的两种方式?</a><br>🎉  <a href="/2020/06/27/sparkf/">spark 如何防止内存溢出?</a><br>🎉  <a href="/2020/06/27/sparkg/">Spark有哪些优化方法?</a><br>🎉  <a href="/2020/06/27/mrSpark/">mr与spark的区别是什么？</a></p>
+                <h3 id="数据分层"><a href="#数据分层" class="headerlink" title="数据分层"></a>数据分层</h3><h4 id="ODS层-operational-data-Store"><a href="#ODS层-operational-data-Store" class="headerlink" title="ODS层(operational data Store)"></a>ODS层(operational data Store)</h4><ul>
+<li>概念：操作数据层，源业务系统数据的快照，每个表对应着原业务系统的一个表或者一个日志文件，物理模型与业务系统模型一致。</li>
+<li>生成方式：从原始日志、关系型数据库或者接口中抽取加载生成。按天分区，关系型数据按照增量字段时间戳增量抽取，日志型数据或者接口数据按照时间戳字段抽取。</li>
+<li>删除方式：保存最近一段时间数据。 </li>
+</ul>
+<h4 id="DWD层-data-warehouse-detail"><a href="#DWD层-data-warehouse-detail" class="headerlink" title="DWD层( data warehouse detail )"></a>DWD层( data warehouse detail )</h4><ul>
+<li>概念：数据明细层，最细粒度的事实数据，用来保存源业务系统数据的快照。主要对ods<br>日志脏数据进行清洗，解决一些数据质量问题和数据的完整度问题。</li>
+<li>生成方式：从ODS层加工处理而成，对脏数据进行清洗过滤。</li>
+<li>删除方式：永久保存 </li>
+</ul>
+<h4 id="DWS层-data-warehouse-summary"><a href="#DWS层-data-warehouse-summary" class="headerlink" title="DWS层(data warehouse summary)"></a>DWS层(data warehouse summary)</h4><ul>
+<li>概念：数据汇总层 ，根据业务主题设计的最细粒度的汇总层。该层对数据的指标和维度进行标准化,面向主题建模。</li>
+<li>生产方式：从dwd、dim层按照业务需求加工细粒度的模型宽表。</li>
+<li>删除方式：永久保存 </li>
+</ul>
+<h4 id="ADS层-application-data-serveice"><a href="#ADS层-application-data-serveice" class="headerlink" title="ADS层(application data serveice)"></a>ADS层(application data serveice)</h4><ul>
+<li>概念：数据应用层，完全从需求的角度设计，用于提供后续的报表展示、业务查询、OLAP分析、数据分发等。</li>
+<li>生产方式：从dws、dim、dwd层加工的模型宽表。</li>
+<li>删除方式：永久保存。 </li>
+</ul>
+<h4 id="DIM层-data-dimension"><a href="#DIM层-data-dimension" class="headerlink" title="DIM层(data dimension)"></a>DIM层(data dimension)</h4><ul>
+<li>概念：数据维表，用于存放字典数据，每个表都包含独立于其他维度表的事实特性。类似地域、渠道等维度表。</li>
+<li>生产方式：从dws、dim、dwd层加工的模型宽表。</li>
+<li>删除方式：永久保存。 </li>
+</ul>
+<h4 id="TMP层-data-warehouse-temp"><a href="#TMP层-data-warehouse-temp" class="headerlink" title="TMP层(data warehouse temp)"></a>TMP层(data warehouse temp)</h4><ul>
+<li>概念：数据临时层，用于存放临时数据或者验证结果数据。</li>
+<li>删除方式：随时删除。</li>
+</ul>
+<h3 id="模型设计规范"><a href="#模型设计规范" class="headerlink" title="模型设计规范"></a>模型设计规范</h3><h4 id="需求分析-结合具体业务场景，确定需求实现的可行性"><a href="#需求分析-结合具体业务场景，确定需求实现的可行性" class="headerlink" title="需求分析(结合具体业务场景，确定需求实现的可行性)"></a>需求分析(结合具体业务场景，确定需求实现的可行性)</h4><ul>
+<li>数据探查阶段：探查源数据数据形态，具体包括以下几个方面：</li>
+<li>源表主键是否重复</li>
+<li>源表字段空值/异常值的统计，枚举值的范围</li>
+<li>源表之间的关联关系</li>
+<li>源表名和源表字段含义是否清晰</li>
+<li>源表字段的数据格式</li>
+</ul>
+<h4 id="模型设计-设计产出目标表，具体包括以下几个方面"><a href="#模型设计-设计产出目标表，具体包括以下几个方面" class="headerlink" title="模型设计(设计产出目标表，具体包括以下几个方面)"></a>模型设计(设计产出目标表，具体包括以下几个方面)</h4><ul>
+<li>表名和表字段名的命名规范</li>
+<li>确定表的粒度、事实和维度</li>
+<li>确定业务指标的计算口径</li>
+<li>敏感字段的处理</li>
+</ul>
+<h4 id="模型开发"><a href="#模型开发" class="headerlink" title="模型开发"></a>模型开发</h4><ul>
+<li>功能描述</li>
+<li>创建人员</li>
+<li>创建日期</li>
+<li>修改人员</li>
+<li>修改日期</li>
+<li>业务处理逻辑</li>
+</ul>
+<h4 id="模型数据验证"><a href="#模型数据验证" class="headerlink" title="模型数据验证"></a>模型数据验证</h4><ul>
+<li>对模型各层次加工的数据准确性进行验证，结合线上数据进行验收：<ul>
+<li>是否符合模型设计规范：表命名、字段命名、建表规范等</li>
+<li>业务主体划分是否合理</li>
+<li>是否满足业务应用需求</li>
+<li>模型扩展性是否满足需求</li>
+</ul>
+</li>
+</ul>
+<h3 id="数据质量监控"><a href="#数据质量监控" class="headerlink" title="数据质量监控"></a>数据质量监控</h3><p><img src="/medias/bigdata/dataquality.png" alt="数据质量监控"></p>
+<h3 id="监控指标点"><a href="#监控指标点" class="headerlink" title="监控指标点"></a>监控指标点</h3><ul>
+<li>1.接入数据条数波动(近7天均值比较)</li>
+<li>2.源系统表结构变更(表名、字段名、字段类型)</li>
+<li>3.源系统表计算延迟，导致后续数据接入延迟</li>
+<li>4.线上维表新增数值， 仓库未及时更新</li>
+<li>5.对接入RDBMS表的主键、外键检查：是否重复</li>
+<li>6.重要字段长度检查</li>
+<li>7.空值检查</li>
+<li>8.重要字段枚举分布检查：离散的，多数是维度字段，可以包含空值检查</li>
+<li>9.值域检查：连续的，一般是事实字段，计算检查MAX MIN SUM AVG</li>
+<li>10.日期合法性检查：是否有跨天日志，是否有不正常时间日志</li>
+</ul>
+<h3 id="数据治理工作需要使用到哪些技术和工具？"><a href="#数据治理工作需要使用到哪些技术和工具？" class="headerlink" title="数据治理工作需要使用到哪些技术和工具？"></a>数据治理工作需要使用到哪些技术和工具？</h3><ul>
+<li>元数据管理：包括元数据采集、血缘分析、影响分析等功能</li>
+<li>数据标准管理：包括标准定义、标准查询、标准发布等功能</li>
+<li>数据质量管理：包括质量规则定义、质量检查、质量报告等功能<br><img src="/medias/bigdata/datawarestar.png" alt="datawarestar"><br><img src="/medias/bigdata/datawarekimball.png" alt="datawarekimball"><br><img src="/medias/bigdata/datawareplatform.png" alt="数据平台建设"></li>
+</ul>
 
             </div>
             <hr/>
@@ -460,7 +537,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://xueqy.github.io/interview/index.html">https://xueqy.github.io/interview/index.html</a>
+                    <a href="https://xueqy.github.io/2020/06/29/dataware/">https://xueqy.github.io/2020/06/29/dataware/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -498,8 +575,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/">
-                                    <span class="chip bg-color"></span>
+                                <a href="/tags/%E9%9D%A2%E8%AF%95/">
+                                    <span class="chip bg-color">面试</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%95%B0%E4%BB%93/">
+                                    <span class="chip bg-color">数仓</span>
                                 </a>
                             
                         </div>
@@ -809,35 +890,33 @@
                 <i class="far fa-dot-circle"></i>&nbsp;本篇
             </div>
             <div class="card">
-                <a href="/interview/index.html">
+                <a href="/2020/06/29/dataware/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="面试题">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="数据分层">
                         
-                        <span class="card-title">面试题</span>
+                        <span class="card-title">数据分层</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            🎉   数仓相关🎉   spark基础之shuffle机制和原理分析🎉   RDD的一些面试问题🎉   简单说一下hadoop和spark的shuffle相同和差异？🎉  spark有哪些组件,以及他们的功能是什么？🎉  Spa
+                            数据分层ODS层(operational data Store)
+概念：操作数据层，源业务系统数据的快照，每个表对应着原业务系统的一个表或者一个日志文件，物理模型与业务系统模型一致。
+生成方式：从原始日志、关系型数据库或者接口中抽取加载生成
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-27
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-29
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/" class="post-category">
-                                    
-                                </a>
-                            
-                            <a href="/" class="post-category">
-                                    
+                            <a href="/categories/%E6%95%B0%E4%BB%93/" class="post-category">
+                                    数仓
                                 </a>
                             
                             
@@ -848,8 +927,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/">
-                        <span class="chip bg-color"></span>
+                    <a href="/tags/%E9%9D%A2%E8%AF%95/">
+                        <span class="chip bg-color">面试</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%95%B0%E4%BB%93/">
+                        <span class="chip bg-color">数仓</span>
                     </a>
                     
                 </div>
@@ -860,50 +943,50 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/interview/index.html">
+                <a href="/2020/06/29/sparksubmit/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="面试题">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="spark-submit 中几个参数的意义">
                         
-                        <span class="card-title">面试题</span>
+                        <span class="card-title">spark-submit 中几个参数的意义</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            🎉   数仓相关🎉   spark基础之shuffle机制和原理分析🎉   RDD的一些面试问题🎉   简单说一下hadoop和spark的shuffle相同和差异？🎉  spark有哪些组件,以及他们的功能是什么？🎉  Spa
+                            spark-submit 中几个参数的意义1.num-executors  线程数：一般设置在50-100之间，必须设置，不然默认启动的executor非常少，不能充分利用集群资源，运行速度慢
+2.executor-memory 线程内存：
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-27
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-29
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/" class="post-category">
-                                    
+                            <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/" class="post-category">
+                                    大数据
                                 </a>
                             
-                            <a href="/" class="post-category">
-                                    
+                            <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/%E9%9D%A2%E8%AF%95/" class="post-category">
+                                    面试
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/">
-                        <span class="chip bg-color"></span>
+                    <a href="/tags/spark/">
+                        <span class="chip bg-color">spark</span>
                     </a>
                     
                 </div>
