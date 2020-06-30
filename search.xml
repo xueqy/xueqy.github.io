@@ -1004,4 +1004,16 @@ elem = mid-&gt;data;
         <tag>数仓</tag>
       </tags>
   </entry>
+  <entry>
+    <title>shell常见的一些题</title>
+    <url>/2020/06/27/shell/</url>
+    <content><![CDATA[<h3 id="shell常见的一些题"><a href="#shell常见的一些题" class="headerlink" title="shell常见的一些题"></a>shell常见的一些题</h3><h4 id="shell实现wordcount"><a href="#shell实现wordcount" class="headerlink" title="shell实现wordcount"></a>shell实现wordcount</h4><pre><code>cat words.txt | tr -s &apos; &apos; &apos;\n&apos; | sort | uniq -c |  sort -r | awk &apos;{ print $2, $1 }&apos;</code></pre>]]></content>
+      <categories>
+        <category>shell</category>
+        <category>面试</category>
+      </categories>
+      <tags>
+        <tag>shell</tag>
+      </tags>
+  </entry>
 </search>
