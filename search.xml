@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>bigdata</title>
-    <url>/2020/06/27/bigdata/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
     <title>Hello World</title>
     <url>/2020/06/26/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
@@ -582,7 +577,7 @@ elem = mid-&gt;data;
         <category>面试</category>
       </categories>
       <tags>
-        <tag>spark</tag>
+        <tag>hive</tag>
       </tags>
   </entry>
   <entry>
@@ -596,6 +591,16 @@ elem = mid-&gt;data;
 </blockquote>
 </li>
 </ul>
+<h4 id="Hadoop-yarn任务调度策略介绍"><a href="#Hadoop-yarn任务调度策略介绍" class="headerlink" title="Hadoop yarn任务调度策略介绍"></a>Hadoop yarn任务调度策略介绍</h4><blockquote>
+<p>理想情况下，我们应用对Yarn资源的请求应该立刻得到满足，但现实情况资源往往是有限的，特别是在一个很繁忙的集群，一个应用资源的请求经常需要等待一段时间才能的到相应的资源。在Yarn中，负责给应用分配资源的就是Scheduler。其实调度本身就是一个难题，很难找到一个完美的策略可以解决所有的应用场景。为此，Yarn提供了多种调度器和可配置的策略供我们选择。</p>
+</blockquote>
+<p>一、调度器的选择<br>在Yarn中有三种调度器可以选择：FIFO Scheduler ，Capacity Scheduler，FairS cheduler。</p>
+<p>FIFO Scheduler把应用按提交的顺序排成一个队列，这是一个先进先出队列，在进行资源分配的时候，先给队列中最头上的应用进行分配资源，待最头上的应用需求满足后再给下一个分配，以此类推。</p>
+<p>FIFO cheduler是最简单也是最容易理解的调度器，也不需要任何配置，但它并不适用于共享集群。大的应用可能会占用所有集群资源，这就导致其它应用被阻塞。在共享集群中，更适合采用Capacity Scheduler或Fair Scheduler，这两个调度器都允许大任务和小任务在提交的同时获得一定的系统资源。</p>
+<p>下面“Yarn调度器对比图”展示了这几个调度器的区别，从图中可以看出，在FIFO 调度器中，小任务会被大任务阻塞。</p>
+<p>而对于Capacity调度器，有一个专门的队列用来运行小任务，但是为小任务专门设置一个队列会预先占用一定的集群资源，这就导致大任务的执行时间会落后于使用FIFO调度器时的时间。</p>
+<p>在Fair调度器中，我们不需要预先占用一定的系统资源，Fair调度器会为所有运行的job动态的调整系统资源。如下图所示，当第一个大job提交时，只有这一个job在运行，此时它获得了所有集群资源；当第二个小任务提交后，Fair调度器会分配一半资源给这个小任务，让这两个任务公平的共享集群资源。</p>
+<p>需要注意的是，在下图Fair调度器中，从第二个任务提交到获得资源会有一定的延迟，因为它需要等待第一个任务释放占用的Container。小任务执行完成之后也会释放自己占用的资源，大任务又获得了全部的系统资源。最终的效果就是Fair调度器即得到了高的资源利用率又能保证小任务及时完成。</p>
 ]]></content>
       <categories>
         <category>大数据</category>
@@ -1046,6 +1051,57 @@ exp1, exp2</code></pre>]]></content>
       </categories>
       <tags>
         <tag>shell</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hive的一些面试题</title>
+    <url>/2020/07/02/hiveinterview/</url>
+    <content><![CDATA[<h5 id="1-Hive内外部表的区别"><a href="#1-Hive内外部表的区别" class="headerlink" title="1.Hive内外部表的区别"></a>1.Hive内外部表的区别</h5><p>删除表是否影响外部数据</p>
+<h5 id="2-Hive如何做到权限管理"><a href="#2-Hive如何做到权限管理" class="headerlink" title="2.Hive如何做到权限管理"></a>2.Hive如何做到权限管理</h5><pre><code>hive下可以修改配置后创建用户管理,但是仅仅是为了防止误操而已,如果要真的为了安全操作建议使用</code></pre><p>Kerberos</p>
+<h5 id="3-Hive的数据倾斜和调优"><a href="#3-Hive的数据倾斜和调优" class="headerlink" title="3.Hive的数据倾斜和调优"></a>3.Hive的数据倾斜和调优</h5><pre><code>key分布不均匀造成 去null
+调节参数
+hive.map.aggr=true
+map端聚合，相当于combiner
+hive.groupby.skewindata=true</code></pre><h5 id="4-Hive文件压缩格式有哪些？压缩效率如何"><a href="#4-Hive文件压缩格式有哪些？压缩效率如何" class="headerlink" title="4.Hive文件压缩格式有哪些？压缩效率如何"></a>4.Hive文件压缩格式有哪些？压缩效率如何</h5><pre><code>开启压缩
+set hive.exec.compress.output=true;
+set mapred.output.compress=true;
+set mapred.output.compression.codec=org.apache.hadoop.io.compress.GzipCodec;
+set io.compression.codec=org.apache.hadoop.io.compress.GzipCodec;
+set mapred.output.compression.type=BLOCK;</code></pre><h5 id="存储方式"><a href="#存储方式" class="headerlink" title="存储方式"></a>存储方式</h5><pre><code>TextFile（压缩方式Gzip，Bzip2 压缩后不支持split）
+SequenceFile-&lt;key,value&gt; （NONE，RECORD，BLOCK！。Record）
+RCFile(存储方式：数据按行分块，每块按列存储。结合了行存储和列存储的优点)
+ORCFile
+(GZIP LZO DefaultCodec snappy)</code></pre><h5 id="5-说说对桶表的理解"><a href="#5-说说对桶表的理解" class="headerlink" title="5.说说对桶表的理解"></a>5.说说对桶表的理解</h5><p>对数据的细化 取模分开存储数据</p>
+<h5 id="6-Hive解析hql转化为MR的执行过程"><a href="#6-Hive解析hql转化为MR的执行过程" class="headerlink" title="6.Hive解析hql转化为MR的执行过程"></a>6.Hive解析hql转化为MR的执行过程</h5><pre><code>、SemanticAnalyzer的主要分析过程：调用analyzeInternal函数
+1）doPhase1过程：主要是将sql语句中涉及到的各种信息存储起来，存到QB中去，供后续调用
+2）getMetaData：这个过程主要是获取元数据信息，主要是sql中涉及到的表到元数据的关联
+3）genPlan：这是最重要的过程之一，主要是生成算子树（operator tree）
+4）optimize：优化，对算子树进行一些优化操作，例如列剪枝等
+5）genMapRedTasks：这个步骤是最关键的步骤，将算子树通过一定的规则生成若干相互以来的MR任务</code></pre><h5 id="7-Hive的分组排序-row-number-，组内TopN"><a href="#7-Hive的分组排序-row-number-，组内TopN" class="headerlink" title="7.Hive的分组排序(row_number())，组内TopN"></a>7.Hive的分组排序(row_number())，组内TopN</h5><h5 id="8-hive有哪些保存元数据的方式，有什么特点"><a href="#8-hive有哪些保存元数据的方式，有什么特点" class="headerlink" title="8.hive有哪些保存元数据的方式，有什么特点"></a>8.hive有哪些保存元数据的方式，有什么特点</h5><pre><code>1、Single User Mode：
+默认安装hive，hive是使用derby内存数据库保存hive的元数据，这样是不可以并发调用hive的，
+这种模式时hive默认的存储模式，。
+2、MultiUser Mode：
+通过网络连接到一个数据库中，是最经常使用到的模式。假设使用本机mysql服务器存储元数据。这种存储
+方式需要在本地运行一个mysql服务器，并作如下配置（需要将mysql的jar包拷贝到$HIVE_HOME/lib目录下
+）。
+3、Remote Server Mode：
+在服务器端启动一个 MetaStoreServer，客户端利用 Thrift 协议通过 MetaStoreServer 访问元数据库。</code></pre><h5 id="9-hive能建多个库吗"><a href="#9-hive能建多个库吗" class="headerlink" title="9.hive能建多个库吗"></a>9.hive能建多个库吗</h5><p>可以</p>
+<h5 id="10-hive的底层怎么与数据库交互的。"><a href="#10-hive的底层怎么与数据库交互的。" class="headerlink" title="10.hive的底层怎么与数据库交互的。"></a>10.hive的底层怎么与数据库交互的。</h5><h5 id="11-hive实现统计的查询语句以及与mr的区别"><a href="#11-hive实现统计的查询语句以及与mr的区别" class="headerlink" title="11.hive实现统计的查询语句以及与mr的区别"></a>11.hive实现统计的查询语句以及与mr的区别</h5><h5 id="12-对于hive你写过哪些UDF函数，作用是干什么的"><a href="#12-对于hive你写过哪些UDF函数，作用是干什么的" class="headerlink" title="12.对于hive你写过哪些UDF函数，作用是干什么的"></a>12.对于hive你写过哪些UDF函数，作用是干什么的</h5><h5 id="13-hive中的压缩格式textfile-sequencefile-rcfile-orc的区别"><a href="#13-hive中的压缩格式textfile-sequencefile-rcfile-orc的区别" class="headerlink" title="13.hive中的压缩格式textfile, sequencefile, rcfile, orc的区别"></a>13.hive中的压缩格式textfile, sequencefile, rcfile, orc的区别</h5><h5 id="14-hive的工作原理"><a href="#14-hive的工作原理" class="headerlink" title="14.hive的工作原理"></a>14.hive的工作原理</h5><h5 id="15-编写hive自定义函数，实现oracle数据库中的addmonths函数功能，然后封装到hive函数库中。"><a href="#15-编写hive自定义函数，实现oracle数据库中的addmonths函数功能，然后封装到hive函数库中。" class="headerlink" title="15.编写hive自定义函数，实现oracle数据库中的addmonths函数功能，然后封装到hive函数库中。"></a>15.编写hive自定义函数，实现oracle数据库中的addmonths函数功能，然后封装到hive函数库中。</h5><pre><code>load data local inpath &apos;文件路径&apos; into table t partition(dt=&quot;2016-07-25&quot;);
+hive自定义函数
+udf步骤：
+1.写一个类继承(org.apache.hadoop.hive.ql.)UDF
+2.覆盖方法eturn evaluate(param...)
+3.打jar包，提交hive服务器
+4.添加到hive资源里面(add jar jar的路径)---&gt;临时的加入的hive的classpath
+5.创建一个临时的函数create temparay function functionName as &apos;自定义类的全类名&apos;;
+6.执行相应的操作
+7[可选]、drop 临时函数</code></pre>]]></content>
+      <categories>
+        <category>大数据</category>
+        <category>面试</category>
+      </categories>
+      <tags>
+        <tag>hive</tag>
       </tags>
   </entry>
 </search>

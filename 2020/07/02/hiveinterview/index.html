@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="bigdata, xueqy">
+    <meta name="keywords" content="Hive的一些面试题, xueqy">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>bigdata | xueqy</title>
+    <title>Hive的一些面试题 | xueqy</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -267,12 +267,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">bigdata</h1>
+                    <h1 class="description center-align post-title">Hive的一些面试题</h1>
                 </div>
             </div>
         </div>
@@ -387,12 +387,29 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/hive/">
+                                <span class="chip bg-color">hive</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/" class="post-category">
+                                大数据
+                            </a>
+                        
+                            <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/%E9%9D%A2%E8%AF%95/" class="post-category">
+                                面试
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -401,7 +418,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-06-27
+                    2020-07-02
                 </div>
                 
 
@@ -417,7 +434,46 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h5 id="1-Hive内外部表的区别"><a href="#1-Hive内外部表的区别" class="headerlink" title="1.Hive内外部表的区别"></a>1.Hive内外部表的区别</h5><p>删除表是否影响外部数据</p>
+<h5 id="2-Hive如何做到权限管理"><a href="#2-Hive如何做到权限管理" class="headerlink" title="2.Hive如何做到权限管理"></a>2.Hive如何做到权限管理</h5><pre><code>hive下可以修改配置后创建用户管理,但是仅仅是为了防止误操而已,如果要真的为了安全操作建议使用</code></pre><p>Kerberos</p>
+<h5 id="3-Hive的数据倾斜和调优"><a href="#3-Hive的数据倾斜和调优" class="headerlink" title="3.Hive的数据倾斜和调优"></a>3.Hive的数据倾斜和调优</h5><pre><code>key分布不均匀造成 去null
+调节参数
+hive.map.aggr=true
+map端聚合，相当于combiner
+hive.groupby.skewindata=true</code></pre><h5 id="4-Hive文件压缩格式有哪些？压缩效率如何"><a href="#4-Hive文件压缩格式有哪些？压缩效率如何" class="headerlink" title="4.Hive文件压缩格式有哪些？压缩效率如何"></a>4.Hive文件压缩格式有哪些？压缩效率如何</h5><pre><code>开启压缩
+set hive.exec.compress.output=true;
+set mapred.output.compress=true;
+set mapred.output.compression.codec=org.apache.hadoop.io.compress.GzipCodec;
+set io.compression.codec=org.apache.hadoop.io.compress.GzipCodec;
+set mapred.output.compression.type=BLOCK;</code></pre><h5 id="存储方式"><a href="#存储方式" class="headerlink" title="存储方式"></a>存储方式</h5><pre><code>TextFile（压缩方式Gzip，Bzip2 压缩后不支持split）
+SequenceFile-&lt;key,value&gt; （NONE，RECORD，BLOCK！。Record）
+RCFile(存储方式：数据按行分块，每块按列存储。结合了行存储和列存储的优点)
+ORCFile
+(GZIP LZO DefaultCodec snappy)</code></pre><h5 id="5-说说对桶表的理解"><a href="#5-说说对桶表的理解" class="headerlink" title="5.说说对桶表的理解"></a>5.说说对桶表的理解</h5><p>对数据的细化 取模分开存储数据</p>
+<h5 id="6-Hive解析hql转化为MR的执行过程"><a href="#6-Hive解析hql转化为MR的执行过程" class="headerlink" title="6.Hive解析hql转化为MR的执行过程"></a>6.Hive解析hql转化为MR的执行过程</h5><pre><code>、SemanticAnalyzer的主要分析过程：调用analyzeInternal函数
+1）doPhase1过程：主要是将sql语句中涉及到的各种信息存储起来，存到QB中去，供后续调用
+2）getMetaData：这个过程主要是获取元数据信息，主要是sql中涉及到的表到元数据的关联
+3）genPlan：这是最重要的过程之一，主要是生成算子树（operator tree）
+4）optimize：优化，对算子树进行一些优化操作，例如列剪枝等
+5）genMapRedTasks：这个步骤是最关键的步骤，将算子树通过一定的规则生成若干相互以来的MR任务</code></pre><h5 id="7-Hive的分组排序-row-number-，组内TopN"><a href="#7-Hive的分组排序-row-number-，组内TopN" class="headerlink" title="7.Hive的分组排序(row_number())，组内TopN"></a>7.Hive的分组排序(row_number())，组内TopN</h5><h5 id="8-hive有哪些保存元数据的方式，有什么特点"><a href="#8-hive有哪些保存元数据的方式，有什么特点" class="headerlink" title="8.hive有哪些保存元数据的方式，有什么特点"></a>8.hive有哪些保存元数据的方式，有什么特点</h5><pre><code>1、Single User Mode：
+默认安装hive，hive是使用derby内存数据库保存hive的元数据，这样是不可以并发调用hive的，
+这种模式时hive默认的存储模式，。
+2、MultiUser Mode：
+通过网络连接到一个数据库中，是最经常使用到的模式。假设使用本机mysql服务器存储元数据。这种存储
+方式需要在本地运行一个mysql服务器，并作如下配置（需要将mysql的jar包拷贝到$HIVE_HOME/lib目录下
+）。
+3、Remote Server Mode：
+在服务器端启动一个 MetaStoreServer，客户端利用 Thrift 协议通过 MetaStoreServer 访问元数据库。</code></pre><h5 id="9-hive能建多个库吗"><a href="#9-hive能建多个库吗" class="headerlink" title="9.hive能建多个库吗"></a>9.hive能建多个库吗</h5><p>可以</p>
+<h5 id="10-hive的底层怎么与数据库交互的。"><a href="#10-hive的底层怎么与数据库交互的。" class="headerlink" title="10.hive的底层怎么与数据库交互的。"></a>10.hive的底层怎么与数据库交互的。</h5><h5 id="11-hive实现统计的查询语句以及与mr的区别"><a href="#11-hive实现统计的查询语句以及与mr的区别" class="headerlink" title="11.hive实现统计的查询语句以及与mr的区别"></a>11.hive实现统计的查询语句以及与mr的区别</h5><h5 id="12-对于hive你写过哪些UDF函数，作用是干什么的"><a href="#12-对于hive你写过哪些UDF函数，作用是干什么的" class="headerlink" title="12.对于hive你写过哪些UDF函数，作用是干什么的"></a>12.对于hive你写过哪些UDF函数，作用是干什么的</h5><h5 id="13-hive中的压缩格式textfile-sequencefile-rcfile-orc的区别"><a href="#13-hive中的压缩格式textfile-sequencefile-rcfile-orc的区别" class="headerlink" title="13.hive中的压缩格式textfile, sequencefile, rcfile, orc的区别"></a>13.hive中的压缩格式textfile, sequencefile, rcfile, orc的区别</h5><h5 id="14-hive的工作原理"><a href="#14-hive的工作原理" class="headerlink" title="14.hive的工作原理"></a>14.hive的工作原理</h5><h5 id="15-编写hive自定义函数，实现oracle数据库中的addmonths函数功能，然后封装到hive函数库中。"><a href="#15-编写hive自定义函数，实现oracle数据库中的addmonths函数功能，然后封装到hive函数库中。" class="headerlink" title="15.编写hive自定义函数，实现oracle数据库中的addmonths函数功能，然后封装到hive函数库中。"></a>15.编写hive自定义函数，实现oracle数据库中的addmonths函数功能，然后封装到hive函数库中。</h5><pre><code>load data local inpath &apos;文件路径&apos; into table t partition(dt=&quot;2016-07-25&quot;);
+hive自定义函数
+udf步骤：
+1.写一个类继承(org.apache.hadoop.hive.ql.)UDF
+2.覆盖方法eturn evaluate(param...)
+3.打jar包，提交hive服务器
+4.添加到hive资源里面(add jar jar的路径)---&gt;临时的加入的hive的classpath
+5.创建一个临时的函数create temparay function functionName as &apos;自定义类的全类名&apos;;
+6.执行相应的操作
+7[可选]、drop 临时函数</code></pre>
             </div>
             <hr/>
 
@@ -442,7 +498,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://xueqy.github.io/2020/06/27/bigdata/">https://xueqy.github.io/2020/06/27/bigdata/</a>
+                    <a href="https://xueqy.github.io/2020/07/02/hiveinterview/">https://xueqy.github.io/2020/07/02/hiveinterview/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -479,7 +535,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/hive/">
+                                    <span class="chip bg-color">hive</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -782,38 +842,41 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/06/27/shell/">
+                <a href="/2020/07/02/hiveinterview/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="shell常见的一些题">
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="Hive的一些面试题">
                         
-                        <span class="card-title">shell常见的一些题</span>
+                        <span class="card-title">Hive的一些面试题</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            shell常见的一些题shell实现wordcountcat words.txt | tr -s &apos; &apos; &apos;\n&apos; | sort | uniq -c |  sort -r | awk &apos;{ 
+                            1.Hive内外部表的区别删除表是否影响外部数据
+2.Hive如何做到权限管理hive下可以修改配置后创建用户管理,但是仅仅是为了防止误操而已,如果要真的为了安全操作建议使用Kerberos
+3.Hive的数据倾斜和调优key分布不均匀造成
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-06-27
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-02
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/shell/" class="post-category">
-                                    shell
+                            <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/" class="post-category">
+                                    大数据
                                 </a>
                             
-                            <a href="/categories/shell/%E9%9D%A2%E8%AF%95/" class="post-category">
+                            <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/%E9%9D%A2%E8%AF%95/" class="post-category">
                                     面试
                                 </a>
                             
@@ -821,11 +884,12 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/shell/">
-                        <span class="chip bg-color">shell</span>
+                    <a href="/tags/hive/">
+                        <span class="chip bg-color">hive</span>
                     </a>
                     
                 </div>
@@ -839,31 +903,33 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/06/26/hello-world/">
+                <a href="/2020/06/29/dataware/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="数据分层">
                         
-                        <span class="card-title">Hello World</span>
+                        <span class="card-title">数据分层</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hex
+                            数据分层ODS层(operational data Store)
+概念：操作数据层，源业务系统数据的快照，每个表对应着原业务系统的一个表或者一个日志文件，物理模型与业务系统模型一致。
+生成方式：从原始日志、关系型数据库或者接口中抽取加载生成
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-26
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-29
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/web%E5%89%8D%E7%AB%AF/" class="post-category">
-                                    web前端
+                            <a href="/categories/%E6%95%B0%E4%BB%93/" class="post-category">
+                                    数仓
                                 </a>
                             
                             
@@ -873,16 +939,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/jQuery/">
-                        <span class="chip bg-color">jQuery</span>
+                    <a href="/tags/%E9%9D%A2%E8%AF%95/">
+                        <span class="chip bg-color">面试</span>
                     </a>
                     
-                    <a href="/tags/%E8%A1%A8%E6%A0%BC/">
-                        <span class="chip bg-color">表格</span>
-                    </a>
-                    
-                    <a href="/tags/%E8%A1%A8%E5%8D%95%E9%AA%8C%E8%AF%81/">
-                        <span class="chip bg-color">表单验证</span>
+                    <a href="/tags/%E6%95%B0%E4%BB%93/">
+                        <span class="chip bg-color">数仓</span>
                     </a>
                     
                 </div>

@@ -319,6 +319,61 @@
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
+                    <a href="/2020/06/29/sparkshffule/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="spark基础之shuffle机制和原理分析">
+                            
+                            <span class="card-title">spark基础之shuffle机制和原理分析</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                什么是spark shufflea). 我们举个例子reduceByKey会产生shuffle对吧，此算子会把上一个RDD每一个相同key的value聚合在一起形成一个新的value，生成一个新的RDD，类型还是&lt;key,value&
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-29
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/" class="post-category">
+                                    大数据
+                                </a>
+                                
+                                <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/%E9%9D%A2%E8%AF%95/" class="post-category">
+                                    面试
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/spark/">
+                            <span class="chip bg-color">spark</span>
+                        </a>
+                        
+                        <a href="/tags/shuffle/">
+                            <span class="chip bg-color">shuffle</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
                     <a href="/2020/06/28/mysqlindex/">
                         <div class="card-image">
                             
@@ -805,66 +860,6 @@ Dataset：就是一
                             
                                 RDD中reduceBykey与groupByKey哪个性能好，为什么?（1）groupByKey()是对RDD中的所有数据做shuffle,根据不同的Key映射到不同的partition中再进行aggregate。
 （2）aggregat
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-27
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/" class="post-category">
-                                    大数据
-                                </a>
-                                
-                                <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/%E9%9D%A2%E8%AF%95/" class="post-category">
-                                    面试
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/">
-                            <span class="chip bg-color">大数据</span>
-                        </a>
-                        
-                        <a href="/tags/hadoop/">
-                            <span class="chip bg-color">hadoop</span>
-                        </a>
-                        
-                        <a href="/tags/spark/">
-                            <span class="chip bg-color">spark</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2020/06/27/sparkd/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="spark streming在实时处理时会发生什么故障，如何停止，解决?">
-                            
-                            <span class="card-title">spark streming在实时处理时会发生什么故障，如何停止，解决?</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                spark streming在实时处理时会发生什么故障，如何停止，解决?和Kafka整合时消息无序：
-修改Kafka的ack参数，当ack=1时，master确认收到消息就算投递成功。ack=0时，不需要收到消息便算成功，高效不准确。ack
                             
                         </div>
                         <div class="publish-info">
